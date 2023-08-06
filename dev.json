@@ -1,0 +1,7 @@
+{
+  "mongo": {
+    "url": "mongodb+srv://devadmin:jWMxpODeUlmLZrTw@cluster0.qhwpqj9.mongodb.net/",
+    "db": "digitalvaults",
+    "prefix": "dv_"
+  }
+}
