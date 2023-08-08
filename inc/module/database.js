@@ -7,7 +7,7 @@ class Database {
     ////console.log('>>>>>>>>>>===========', config);
 
     this.response = false;
-    this.config = config.mongo;
+    this.config = config;
 
     //console.log('>>>>>>>>>>===========', this.config);
   }

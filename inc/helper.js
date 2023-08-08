@@ -26,7 +26,7 @@ const fileExists = (file, common = path) => {
 
 const config = () => {
   try {
-    const isDev = !get('NODE_ENV', 'production');
+    const isDev = !_get('NODE_ENV', 'production');
     return require(`../${isDev ? 'dev' : 'production'}.json`);
   } catch (ex) {
     console.log(ex);
@@ -34,7 +34,7 @@ const config = () => {
   }
 };
 
-const get = (k, val = undefined) => {
+const _get = (k, val = undefined) => {
   if (val === undefined) {
     return process.env[k];
   } else {
@@ -42,7 +42,7 @@ const get = (k, val = undefined) => {
   }
 };
 
-const data = !get('NODE_ENV', 'production')
+const data = !_get('NODE_ENV', 'production')
   ? {
       b16: 'r3v7i0sz93zrrf9b',
       b32: '6e20522bac1b5358b8e1cb12b1d4fb94',
@@ -56,11 +56,14 @@ let _key = Buffer.from(data.b32, 'utf8'); // crypto.randomBytes(16);
 
 const helper = {
   unreal: unreal,
-  isDev: !get('NODE_ENV', 'production'),
+  isDev: !_get('NODE_ENV', 'production'),
   env: process.env['NODE_ENV'],
   fileExists: fileExists,
+  getSiteUrl: (window) => {
+    return window.location.protocol + '//' + window.location.hostname + (window.location.port === '' || window.location.port === '80' || window.location.port === '443' ? '' : ':' + window.location.port)
+  },
   config: config(),
-  get: get,
+  _get: _get,
   encrypt: (str, key = _key, iv = _iv) => {
     let cipher = crypto.createCipheriv(algorithm, Buffer.from(key), iv);
     let encrypted = cipher.update(str);

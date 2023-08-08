@@ -1,0 +1,580 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Merriweather+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,600&display=swap');
+
+/* inter-300 - latin */
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: local(''),
+      url('../fonts/inter-v12-latin-300.woff2') format('woff2'),
+      /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url('../fonts/inter-v12-latin-300.woff') format('woff');
+    /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  }
+
+  /* inter-400 - latin */
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local(''),
+      url('../fonts/inter-v12-latin-regular.woff2') format('woff2'),
+      /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url('../fonts/inter-v12-latin-regular.woff') format('woff');
+    /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  }
+
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: local(''),
+      url('../fonts/inter-v12-latin-500.woff2') format('woff2'),
+      /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url('../fonts/inter-v12-latin-500.woff') format('woff');
+    /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  }
+
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: local(''),
+      url('../fonts/inter-v12-latin-700.woff2') format('woff2'),
+      /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url('../fonts/inter-v12-latin-700.woff') format('woff');
+    /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  }
+
+#main {
+    min-height: 80vh;
+}
+
+.navmenu{
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.navmenu li {
+    color: #ffffff;
+    text-align: center;
+    border: 1px solid #fff;
+    padding: 3px 9px;
+    margin: 3px;
+    border-radius: 5px;
+}
+
+.navmenu li a{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.navmenu li:last-child a{
+    border-right: none;
+}
+
+.cursive{
+    font-family: 'Dancing Script', cursive;
+}
+.curved{
+    position: absolute;
+    height: 90px;
+    width: 101%;
+    background: rgb(44, 62, 80);
+    bottom: 0px;
+}
+.curved::after {
+        width: 55%;
+        height: 100%;
+        background-color: rgb(44, 62, 80);
+        left: -1.5%;
+        top: 40%;
+}
+
+.curved::before {
+        
+    width: 55%;
+    height: 109%;
+    background-color: rgb(255, 255, 255);
+    right: -1.5%;
+    top: 60%;
+}
+
+.merriweather{
+    font-family: 'Merriweather Sans', sans-serif !important;
+}
+.photo-gallery{
+    flex-wrap: wrap;
+}
+.photo-gallery a{
+    
+    margin: 3px;
+    max-width: 30%;
+    float: left;
+    display: inline;
+}
+.photo-gallery a img{
+    max-width: 100%;
+}
+
+a.fancybox {
+    position: relative;
+    overflow: hidden;
+}
+
+a.fancybox span{
+    
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    background: #9caf2b;
+    color: #fff;
+    padding: 5px;
+    text-align: center;
+}
+.splashCover{
+    
+    position: fixed;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+}
+
+.treepic span{
+    
+    display: block;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+}
+a.fancybox:hover span{
+    bottom: -100%;
+}
+
+.b-right{
+    border-right: 1px solid #ffffff;
+}
+.b-bottom{
+    border-top: 1px solid #ffffff;
+}
+
+.b500{
+    font-weight:500;
+}
+.b700{
+    font-weight:700;
+}
+.b900{
+    font-weight:900;
+}
+.b300{
+    font-weight:300;
+}
+
+
+.navbar{
+    
+    max-width: 100vw;
+}
+#navbarToggle{
+    width: 100%;
+    background-color:rgba(6,76,29,1);
+}
+
+#mapstat{
+    margin-top: -126px;
+    z-index: 9;
+    position: relative;
+}
+
+.map-holder{
+    margin: 27px;
+    background-color: #2d4681;
+    border: 5px solid #fff;
+    border-radius: 15px;
+    padding: 15px;
+}
+.bg-green{
+    background-color:rgb(156, 175, 43);
+    color: #ffffff;
+}
+.bg-white{
+    background-color:#fff;
+    color: #064c1d;
+}
+
+.bg-brown{
+    background-color: #964B00; color: #ffffff;
+}
+.form-group{
+    padding-bottom: 15px;
+}
+.bg-green-alpha{
+    background-color:#064c1d;
+    color: #ffffff;
+}
+.bg-green-alpha:focus{
+    background-color:rgb(156, 175, 43);
+    color: #ffffff;
+}
+.text-green{
+    color:rgb(156, 175, 43);
+}
+.bg-green-d{
+    background-color:#064c1d;
+    color: #ffffff;
+}
+.bg-green-d a {
+    color: #ffffff;
+}
+.bg-white a{
+    color: #064c1d;
+}
+.bg-white-alpha{
+    background-color:rgba(255,255,255,1);
+}
+.bg-leave{
+    background-image: url('../img/leaves.png');
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-position: -5% 81%;
+}
+
+.bg-leave-r{
+    position: absolute; background-color:rgb(156, 175, 43);
+    z-index: 1;
+    left: 0;
+    top:0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/leaves.png');
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-position: 0% 0%;
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+}
+
+.img-responsive{
+    max-width: 100%;
+}
+.img-blur {
+    
+    position: relative;
+}
+.img-blurr {
+    
+    position: relative;
+
+}
+.img-blurr::after{
+    content: "Not Verified"; 
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    z-index: 9;
+    top:0;
+    left: 0;
+}
+.img-blurr img{
+    -webkit-filter: blur(18px);
+	filter: blur(18px);
+}
+.img-blurr:hover img{
+    -webkit-filter: blur(0px);
+	filter: blur(0px);
+}
+.img-blurr:hover::after{
+    display: none;
+}
+
+
+.img-blur::after{
+    content: "Not Verified. Blur image will be visible until it will be verfied!";
+    background-color: rgba(255,255,255,.9);
+    position: absolute;
+    color: rgba(0,0,0,.7);
+    font-size: 18px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    z-index: 9;
+    top:0;
+    left: 0;
+}
+.img-blur:hover:after, .img-blur:foucs:after{
+    display: none;
+}
+
+.del-btn{
+    
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    z-index: 11;
+}
+.ver-btn{
+    
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 11;
+}
+
+.form-control.ub {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #fff;
+}
+
+.btn-green {
+    background-color: #9caf2b;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.btn-green-dark{
+    background-color: #064c1d;
+    color: #fff;
+    border-radius: 5px;
+}
+.btn-green:hover {
+    color: #9caf2b;
+    background-color: #2d4681;
+    border-radius: 5px;
+}
+.btn-green-dark{
+    background-color: #064c1d;
+    color: #fff;
+    border-radius: 5px;
+}
+.btn-green-dark:hover{
+    background-color: #fff;
+    color: #064c1d;
+}
+
+.jdForm.dark, .jdForm.dark label{
+    color:#ffffff;
+}
+
+.c-camera-feed__viewer::after{
+    content: "Double Tap or Click Capture Button";
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0,0,0,.2);
+    color: #ffffff;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    left: 0;
+}
+
+.jdForm .input-group span{
+    padding: 0.75rem 0.75rem;
+    background: #9caf2b;
+    color: #ffffff;
+    border-radius: 0;
+}
+.jdForm .input-group:hover span, .jdForm .input-group:focus span{
+    background-color: #ffffff;
+    color: #9caf2b;
+}
+
+.form-control:focus{
+    outline: none;
+}
+
+.form-check-input:checked {
+    background-color: #9caf2b;
+    border-color: #ffffff;
+}
+
+.form-switch .form-check-input {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%239caf2b'/%3e%3c/svg%3e");
+}
+.form-switch .form-check-input:focus {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%232d4681'/%3e%3c/svg%3e");
+}
+
+#footer {
+    
+    color: #fff;
+    position: relative;
+}
+
+#footer a{
+    color: #fff;
+}
+
+.masonry-container {
+   
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    grid-template-rows: masonry;
+}
+  
+  /* Re-order items into rows */
+  .masonry-item {
+    display: flex;
+	justify-content: center;
+	align-items: center;
+   }
+
+   .masonry-item .masonry-content {
+    font-size: 14px;
+    width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 5px;
+}
+
+.bg-none{
+    background: none;
+}
+
+.border-none{
+    border: none;
+}
+
+.p-4.masonry-content span.left {
+    display: inline-block;
+    font-weight: bold;
+    text-align: left;
+}
+.p-4.masonry-content span.right {
+    display: inline-block;
+}
+.p-4.masonry-content span.center {
+    display: block;
+    text-align: center;
+}
+.badge-info {
+    color: #fff;
+    background-color: #17a2b8;
+    cursor: pointer;
+}
+.p-4.masonry-content a{
+    color: #ffffff;
+    text-decoration: underline !important;
+}
+
+.p-4.masonry-content a:hover{
+    text-decoration: none !important;
+}
+.badge.badge-success {
+    
+    background-color: #064c1d;
+}
+
+.masonry-item img {
+    grid-row: 1 / -1;
+    grid-column: 1;
+}
+
+
+#slider {
+	overflow: hidden;
+}
+
+@keyframes slider {
+	0% { left: 0; }
+	30% { left: 0; }
+	33% { left: -100%; }
+	63% { left: -100%; }
+	66% { left: -200%; }
+	95% { left: -200%; }
+	100% { left: 0; }
+}
+#slider li {
+	width:300%;
+	position: relative;
+	animation: 9s slider infinite;
+}
+
+#slider li img {
+	width: 33.333333333%;
+	height : 100%;
+	float: left;
+}
+#btnLaunch{
+    position: absolute;
+    width: 100%;
+    height: 18%;
+    bottom: 0;
+}
+
+.flink{
+    display: block;
+    margin: 5px 0;
+}
+
+.treeImage{
+    position: relative;
+    display: block;
+}
+
+.countryflag {
+    display: block;
+    position: absolute;
+    z-index: 26;
+    bottom: 10px;
+    right: 10px;
+    margin: auto;
+    width: 64px;
+}
+
+.filterList{
+    list-style: none;
+    padding: 5px 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+@media screen and (max-width: 767px) {
+    .masonry-container {
+        column-count: 1;
+        column-gap: 15px;
+    }
+
+    .w-sm-100{
+        width: 100% !important;
+    }
+
+    .b-right{
+        border-right: none;
+        border-bottom: 1px solid #fff;
+        padding: 15px;
+    }
+    .b-none{
+        padding: 15px;
+    }
+}
