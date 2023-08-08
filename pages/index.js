@@ -1,6 +1,7 @@
 import react from 'react';
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
+import Header from '../inc/component/common/Header';
 
 
 
@@ -13,7 +14,8 @@ export default class Home extends react.Component{
   
   render() {
     return <>
-    {this.props.loader}
+    <Header {...this.props} />
+    
     </>;
   }
 }

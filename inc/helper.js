@@ -3,7 +3,7 @@ const fs = require('fs');
 
 const algorithm = 'aes-256-cbc';
 
-const unreal = (vars) => {
+const empty = (vars) => {
   if (typeof vars === 'object') {
     if (Array.isArray(vars) && vars.length < 1) {
       return false;
@@ -24,21 +24,26 @@ const fileExists = (file, common = path) => {
   }
 };
 
-const config = () => {
-  try {
-    const isDev = !_get('NODE_ENV', 'production');
-    return require(`../${isDev ? 'dev' : 'production'}.json`);
-  } catch (ex) {
-    console.log(ex);
-    return process.env;
-  }
-};
 
 const _get = (k, val = undefined) => {
   if (val === undefined) {
     return process.env[k];
   } else {
     return process.env[k] === val;
+  }
+};
+
+
+const config = () => {
+  try {
+    const isDev = !_get('NODE_ENV', 'production');
+    if(_get('IS') === undefined){
+      return require(`../${isDev ? 'dev' : 'production'}.json`);
+    }
+    return require(`../${_get('IS')}.json`);
+  } catch (ex) {
+    console.log(ex);
+    return process.env;
   }
 };
 
@@ -55,12 +60,12 @@ let _iv = Buffer.from(data.b16, 'utf8'); // crypto.randomBytes(16);
 let _key = Buffer.from(data.b32, 'utf8'); // crypto.randomBytes(16);
 
 const helper = {
-  unreal: unreal,
+  empty: empty,
   isDev: !_get('NODE_ENV', 'production'),
-  env: process.env['NODE_ENV'],
+  env: process.env['IS'],
   fileExists: fileExists,
   getSiteUrl: (window) => {
-    return window.location.protocol + '//' + window.location.hostname + (window.location.port === '' || window.location.port === '80' || window.location.port === '443' ? '' : ':' + window.location.port)
+    return window !== undefined ? window.location.protocol + '//' + window.location.hostname + (window.location.port === '' || window.location.port === '80' || window.location.port === '443' ? '' : ':' + window.location.port) : ''
   },
   config: config(),
   _get: _get,
