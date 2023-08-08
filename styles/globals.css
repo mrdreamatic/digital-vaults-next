@@ -14,3 +14,35 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.bg-dark{
+  background: #004257 !important;
+}
+
+
+
+.bg-grey{
+  background: #838383 !important;
+  color: #fff;
+}
+
+.bg-grey a{
+  color: #fff;
+}
+
+.bg-dark-grey{
+  background: #0d0d0d !important;
+  color: #fff;
+}
+
+.bg-dark-grey a{
+  color: #fff;
+}
+
+.navbar-brand img{
+  max-height: 32px;
+}
+
+main{
+  min-height: calc(100vh - 100px);
+}

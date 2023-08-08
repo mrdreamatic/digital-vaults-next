@@ -1,5 +1,6 @@
 {
     "environment": "local",
+    "name":"Digital Vaults Local",
     "server":{
       "mongo": {
         "url": "mongodb://localhost:27017",

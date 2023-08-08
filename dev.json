@@ -1,4 +1,6 @@
 {
+  "environment": "dev",
+  "name":"Digital Vaults Dev",
   "server":{
     "mongo": {
       "url": "mongodb+srv://devadmin:jWMxpODeUlmLZrTw@cluster0.qhwpqj9.mongodb.net/",

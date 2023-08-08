@@ -1,11 +1,14 @@
 import React from "react";
 
 export default class Header extends React.Component{
+    componentDidMount(){
+        console.log(this.props.client)
+    }
     render(){
-        return(<>
+        return(<header>
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Eighth navbar example">
     <div className="container">
-      <a className="navbar-brand" href="#">Container</a>
+      <a className="navbar-brand" href={this.props.client.siteUrl}><img src={this.props.client.siteUrl + '/assets/img/logo.png'} alt={this.props.client.config.name} /></a>
       <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>
@@ -36,6 +39,6 @@ export default class Header extends React.Component{
       </div>
     </div>
   </nav>
-        </>)
+        </header>)
     }
 }
