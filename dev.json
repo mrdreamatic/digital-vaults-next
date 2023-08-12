@@ -3,8 +3,8 @@
   "name":"Digital Vaults Local",
   "server":{
     "mongo": {
-      "url": "mongodb://localhost:27017",
-      "db": "firenext",
+      "url": "mongodb+srv://devadmin:jWMxpODeUlmLZrTw@cluster0.qhwpqj9.mongodb.net/",
+      "db": "digitalvaults",
       "prefix": "fn_"
     },
     "firebase": {

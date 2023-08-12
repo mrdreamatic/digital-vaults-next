@@ -369,7 +369,7 @@ class Database {
     }
   ) {
     await this.connectDB();
-    console.log(this.config.prefix + col);
+    console.log(this.config ,this.config.prefix + col, qry, attr);
     try {
       const o =
         attr.order === undefined || typeof attr.order !== 'object'
@@ -379,7 +379,9 @@ class Database {
       const l = attr.limit === undefined ? 100 : parseInt(attr.limit);
 
       qry = this.filterObject(qry);
-      const result = await this.dbo
+      let result;
+      if(Object.keys(o).length > 0){
+        result = await this.dbo
         .collection(this.config.prefix + col)
         .find(qry)
         .sort(o)
@@ -387,10 +389,20 @@ class Database {
         .limit(l)
         .allowDiskUse(true)
         .toArray();
-      this.dbclose();
+      }else{
+        result = await this.dbo
+        .collection(this.config.prefix + col)
+        .find(qry)
+        .sort(o)
+        .skip(s)
+        .limit(l)
+        .toArray();
+      }
+      
+     // this.dbclose();
       return result;
     } catch (ex) {
-      //console.log(ex);
+      console.log(ex);
       this.dbclose();
     }
   }

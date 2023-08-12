@@ -3,7 +3,7 @@
     "name":"Digital Vaults Local",
     "server":{
       "mongo": {
-        "url": "mongodb://localhost:27017",
+        "url": "mongodb://0.0.0.0:27017/",
         "db": "firenext",
         "prefix": "fn_"
       },
@@ -33,6 +33,7 @@
         "measurementId": "G-2EM18K6V3P",
         "databaseURL": "https://project-firenext-default-rtdb.asia-southeast1.firebasedatabase.app"
       }
+      
     }
   }
   

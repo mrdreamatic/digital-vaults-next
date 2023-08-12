@@ -15,24 +15,26 @@ function MyApp({ Component, pageProps, request }) {
   </div>
   <div className="line"></div>
   </div>
-  const [_client, setClient] = useState(null);
+  const [app, setApp] = useState(null);
  // console.log("8.)",_client);
   useEffect(()=>{
-    client.init(request, window).then((res)=>{
+    let _app = (new client());
+    _app.init(request, window).then((res)=>{
       
-      setClient(res);
+      _app.helper = res;
+      setApp(_app);
     })
     
-  },[_client])
+  },[app])
   
   
   return <>
   {
-    _client === null ? 
+    app === null ? 
     <>
     {loader}
     </> :
-    <Component {...{app: pageProps, client: _client, loader: loader}} /> 
+    <Component {...{attr: pageProps, app: app, loader: loader}} /> 
   }
   </>
 }

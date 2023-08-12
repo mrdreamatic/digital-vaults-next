@@ -11,7 +11,11 @@ async function handler(req, res) {
     const app = server.init(req)
     //console.log(`${app.request.protocol}//${app.request.host}`);
     let response  = await method(req, app);
-    res.status(200).send(response)
+    if(response.type === undefined && response.code === undefined){
+      res.status(200).send(response)
+    }else{
+      res.status(response.code).send(response)
+    }
     
 
   }else{

@@ -4,6 +4,7 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    background-color: #e2e2e2;
 }
 
 a {
@@ -39,8 +40,40 @@ a {
   color: #fff;
 }
 
+.box-shadow{
+  box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
 .navbar-brand img{
   max-height: 32px;
+}
+
+.login-container{
+  min-height: calc(100vh - 117px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+
+.login-container .login-response{
+  max-width: 400px;
+  padding: 15px;
+}
+.login-container .login-form{
+  max-width: 400px;
+  background-color: #004257;
+  color: #fff;
+  width: 100%;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+
+.login-container .login-box{
+  max-width: 400px;
+  text-align: center;
 }
 
 main{

@@ -62,7 +62,76 @@ let _key = Buffer.from(data.b32, 'utf8'); // crypto.randomBytes(16);
 const helper = {
   empty: empty,
   isDev: !_get('NODE_ENV', 'production'),
+    _query: (qry = '') => {
+      const params = new URLSearchParams(window.location.search);
+      if (qry === '') {
+        const result = {}
+        for (const [key, value] of params.entries()) { // each 'entry' is a [key, value] tupple
+          result[key] = value;
+        }
+        return result;
+      } else {
+        return params.get(qry);
+      }
+    
+  },
+  formObject: (target) => {
+      let form = {};
+      for (let i = 0; i < target.length; i++) {
+          if(target.elements[i].getAttribute("name") !== null){
+            if(target.elements[i].tagName.toLowerCase() === 'select' && target.elements[i].multiple){
+              var result = [];
+              var options = target.elements[i].options;
+              var opt;
+            
+              for (let j=0, iLen=options.length; j<iLen; j++) {
+                opt = options[j];
+            
+                if (opt.selected) {
+                  result.push(opt.value || opt.text);
+                }
+              }
+              form[target.elements[i].getAttribute("name")] = result;
+            }else if(target.elements[i].getAttribute("type") !== null && ['radio','checkbox'].includes(target.elements[i].getAttribute("type"))){
+              if(target.elements[i].getAttribute("type") === 'radio'){
+                if(target.elements[i].checked){
+                  form[target.elements[i].getAttribute("name")] = (target.elements[i].value)
+                }
+              }else{
+                if(form[target.elements[i].getAttribute("name")] === undefined){
+                  form[target.elements[i].getAttribute("name")] = []
+                }
+                if(target.elements[i].checked){
+                  form[target.elements[i].getAttribute("name")].push(target.elements[i].value)
+                }
+              }
+            }else{
+              form[target.elements[i].getAttribute("name")] = target.elements[i].value; 
+            }
+              
+          }
+      }
+      return form;
+  },
   env: process.env['IS'],
+  firebaseAuthorize: (window, attr = {
+    package: 'org.digitalvaults',
+    domain: 'firenext.page.link'
+  })=>{
+    return {
+        url: window.location.href,
+        handleCodeInApp: true,
+        iOS: {
+            bundleId: `${attr.package}.ios`
+        },
+        android: {
+            packageName: `${attr.package}.android`,
+            installApp: true,
+            minimumVersion: '12'
+        },
+        dynamicLinkDomain: `${attr.domain}`
+    }
+  },
   fileExists: fileExists,
   getSiteUrl: (window) => {
     return window !== undefined ? window.location.protocol + '//' + window.location.hostname + (window.location.port === '' || window.location.port === '80' || window.location.port === '443' ? '' : ':' + window.location.port) : ''
