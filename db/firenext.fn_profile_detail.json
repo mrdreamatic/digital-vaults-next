@@ -1,0 +1,40 @@
+[{
+  "_id": "huThJuvaSPcAOZdXT5LwzJOAbmj1",
+  "dob": "1989-01-09",
+  "gender": "M",
+  "lookingfor": "Scholarship",
+  "preferred_country": [
+    "UK"
+  ],
+  "prospective_degree": [
+    "Under_Graduate",
+    "Graduate",
+    "Master_s_Degree",
+    "Doctoral_Degree__PhD__MD__JD__etc___"
+  ],
+  "specicalization": [
+    "computer_science",
+    "business__management_studies",
+    "social_science_and_humanities"
+  ],
+  "updated": "2023-08-12T12:35:11.954Z",
+  "updatedBy": "huThJuvaSPcAOZdXT5LwzJOAbmj1"
+},
+{
+  "_id": "MBchXB833jalaJxn6Jrky1XPval2",
+  "dob": "1989-01-09",
+  "gender": "M",
+  "lookingfor": "Scholarship",
+  "preferred_country": [],
+  "prospective_degree": [
+    "Under_Graduate",
+    "Graduate"
+  ],
+  "specicalization": [
+    "computer_science",
+    "business__management_studies",
+    "social_science_and_humanities"
+  ],
+  "updated": "2023-08-13T11:24:45.175Z",
+  "updatedBy": "MBchXB833jalaJxn6Jrky1XPval2"
+}]

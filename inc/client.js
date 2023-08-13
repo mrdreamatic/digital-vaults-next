@@ -296,13 +296,15 @@ class client {
         return <div className="form-group" key={key}>
             <h6>{x.title}</h6>
             <select id={x.name} name={x.name} {...x.attr} className="form-control">
-            <option value={''}>Select your {x.name}</option>
             {
                 option.map((v, i)=>{
                     return <option key={i} value={v.val} selected={x.attr.multiple !== undefined && x.attr.multiple && Array.isArray(x.selected) ? x.selected.includes(v.val) : x.selected === v.val}>{v.text}</option>
                 })
             }
             </select>
+            {x.attr.multiple !== undefined && x.attr.multiple && <small className="d-none d-md-block">
+              Press Ctrl or ⌘ Key to select multiple options
+            </small>}
             <div className="p-2"></div>
         </div>;
         

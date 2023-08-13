@@ -108,6 +108,7 @@ export default class Questions extends React.Component{
                             xo.attr = {
                                 onChange: this.updateModel,
                             }
+                            
                             xo.defaultChecked = this.getModel(xi.name).includes(xo.val);
                         }else{
                             xo.defaultChecked = Array.isArray(this.getModel(xi.name)) ? this.getModel(xi.name) === xo.val : this.getModel(xi.name).includes(xo.val);
@@ -158,19 +159,6 @@ export default class Questions extends React.Component{
             data[name] = checked;
         }
         
-        let cbx = document.querySelectorAll(`input[name="${name}"]`);
-        
-        cbx.forEach((cb)=>{
-            //console.log(cb.required);
-            if(!checked.includes(cb.value) && e.target !== cb){
-                cb.removeAttribute('required'); 
-               
-                //console.log(cb.value);
-            }else{
-                cb.setAttribute('required', true);
-            }
-        })
-        console.log(cbx);
         console.log(checked.map((x)=>{
             return e.target.checked ? x + " >>> Checked" : x;
         }))
@@ -211,23 +199,24 @@ export default class Questions extends React.Component{
         let params = this.props.app.helper.formObject(e.target);
         params = {...params, ...{"_id": this.props.app.helper.user.uid}};
         console.log(params);
-        //let resp = await this.props.app.dbset("profile", "profile_detail",params);
-        //if(resp.code === 200){
-        //    window.location.reload();
-        //}
+        let resp = await this.props.app.dbset("profile", "profile_detail",params);
+        console.log(resp);
+        if(resp.code === 200){
+           window.location.reload();
+        }
         
     }
 
     render(){
-        return(<main>
+        return(
             <div className="profile">
-                
+                <form onSubmit={this.saveData}>
                 {
                 Array.isArray(this.state.items) && (this.state.items).map((v,i)=>{
                     //console.log(v);
                         
                         return <>
-                        <form onSubmit={this.saveData}>
+                        
                         <div key={i} className="card mb-2">
                         {
                             <>
@@ -257,12 +246,12 @@ export default class Questions extends React.Component{
                             </>
                         }</div>
                         
-                        </form>
+                        
                         </>;
                     })
                 }
-                
+                </form>
             </div>
-        </main>)
+        )
     }
 }

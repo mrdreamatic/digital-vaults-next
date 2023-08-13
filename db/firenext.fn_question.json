@@ -1,0 +1,225 @@
+[{
+  "_id": {
+    "$oid": "64d4c17d2519b3b514473cfb"
+  },
+  "title": "Personal Detail",
+  "control": [
+    {
+      "title": "Date of Birth",
+      "type": "date",
+      "attr": {
+        "required": true
+      },
+      "name": "dob",
+      "enabled": true
+    },
+    {
+      "title": "Gender",
+      "type": "radio",
+      "name": "gender",
+      "attr": {
+        "required": true
+      },
+      "option": [
+        {
+          "text": "Male",
+          "val": "M"
+        },
+        {
+          "text": "Female",
+          "val": "F"
+        },
+        {
+          "text": "Other",
+          "val": "O"
+        }
+      ],
+      "enabled": true
+    },
+    {
+      "title": "Preferred country for the study",
+      "name": "preferred_country",
+      "type": "checkbox",
+      "attr": {},
+      "option": [
+        {
+          "text": "CANADA",
+          "val": "CA"
+        },
+        {
+          "text": "USA",
+          "val": "US"
+        },
+        {
+          "text": "UK",
+          "val": "UK"
+        },
+        {
+          "text": "Australia",
+          "val": "AU"
+        },
+        {
+          "text": "Europe",
+          "val": "Europe"
+        }
+      ],
+      "enabled": true
+    }
+  ],
+  "enabled": true,
+  "order": 0
+},
+{
+  "_id": {
+    "$oid": "64d733b0368c84f3e76e24e8"
+  },
+  "title": "What are you looking for?",
+  "control": [
+    {
+      "type": "radio",
+      "attr": {
+        "required": true
+      },
+      "name": "lookingfor",
+      "option": [
+        {
+          "text": "Scholarship",
+          "val": "Scholarship"
+        },
+        {
+          "text": "Admission",
+          "val": "Admission"
+        },
+        {
+          "text": "Internship",
+          "val": "Internship"
+        },
+        {
+          "text": "Job",
+          "val": "Job"
+        }
+      ],
+      "enabled": true
+    }
+  ],
+  "enabled": true,
+  "order": 1
+},
+{
+  "_id": {
+    "$oid": "64d7385f368c84f3e76e24e9"
+  },
+  "title": "Academic Detail",
+  "control": [
+    {
+      "type": "select",
+      "attr": {
+        "multiple": true,
+        "required": true
+      },
+      "name": "prospective_degree",
+      "title": "Your Prospective Degree",
+      "option": [
+        {
+          "text": "Under Graduate",
+          "val": "Under_Graduate"
+        },
+        {
+          "text": "Graduate",
+          "val": "Graduate"
+        },
+        {
+          "text": "Master's Degree",
+          "val": "Master_s_Degree"
+        },
+        {
+          "text": "Doctoral Degree (PhD, MD, JD, etc.))",
+          "val": "Doctoral_Degree__PhD__MD__JD__etc___"
+        },
+        {
+          "text": "Bootcamp",
+          "val": "Bootcamp"
+        },
+        {
+          "text": "Trade School Certificate",
+          "val": "Trade_School_Certificate"
+        },
+        {
+          "text": "Not planning on it right now",
+          "val": "Not_planning_on_it_right_now"
+        }
+      ],
+      "enabled": true
+    },
+    {
+      "type": "select",
+      "attr": {
+        "multiple": true,
+        "required": true
+      },
+      "title": "What is your Specialization?",
+      "name": "specicalization",
+      "option": [
+        {
+          "text": "Computer Science",
+          "val": "computer_science"
+        },
+        {
+          "text": "Business Management Studies",
+          "val": "business__management_studies"
+        },
+        {
+          "text": "Social Science and Humanities",
+          "val": "social_science_and_humanities"
+        },
+        {
+          "text": "Architecture",
+          "val": "architecture"
+        },
+        {
+          "text": "Medicine",
+          "val": "medicine"
+        },
+        {
+          "text": "Management",
+          "val": "management"
+        },
+        {
+          "text": "Physical Sciences",
+          "val": "physical_sciences"
+        },
+        {
+          "text": "Engineering",
+          "val": "engineering"
+        },
+        {
+          "text": "Dentist",
+          "val": "dentist"
+        },
+        {
+          "text": "Others",
+          "val": "others"
+        },
+        {
+          "text": "Law",
+          "val": "law"
+        },
+        {
+          "text": "Design",
+          "val": "design"
+        },
+        {
+          "text": "Arts",
+          "val": "arts"
+        },
+        {
+          "text": "Nursing",
+          "val": "nursing"
+        }
+      ],
+      "enabled": true
+    }
+  ],
+  "enabled": true,
+  "order": 1
+}]

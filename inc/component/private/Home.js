@@ -1,6 +1,7 @@
 import React from "react";
 import Questions from "./Questions";
 import Profile from "./Profile";
+import Scholarships from "./Scholarships";
 
 
 export default class Home extends React.Component{
@@ -19,7 +20,7 @@ export default class Home extends React.Component{
             })
         }
         console.log(this.profile);
-        this.userdata = await this.props.app.db('GET','findone','userdata', {_id: this.props.app.helper.user.uid});
+        this.userdata = await this.props.app.db('GET','findone','profile_detail', {_id: this.props.app.helper.user.uid});
         if(this.userdata.data !== undefined){
             this.setState({
                 userdata: this.userdata.data === null ? [] : this.userdata.data
@@ -51,7 +52,7 @@ export default class Home extends React.Component{
                         <Questions {...this.props} />
                         </div>
                          :
-                         <>Scholarship List</>
+                         <><Scholarships {...this.props} state={this.state} /></>
                     }</>
                 }
                 </>

@@ -1,0 +1,1205 @@
+[{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e24f2"
+  },
+  "title": "Transform Together scholarships",
+  "awardedby": "Sheffield Hallam University",
+  "student_country": "All",
+  "student_gender": "All",
+  "merit_base": "Merit Based",
+  "edu_subject": "Engineering",
+  "edu_level": [
+    "Undergraduate",
+    "Postgraduate"
+  ],
+  "scholarship_country": "UK",
+  "scholarship_amt": "Half fee Waiver",
+  "deadline": {
+    "$date": "2023-10-31T18:30:00.000Z"
+  },
+  "apply_link": "https://www.shu.ac.uk/study-here/international/fees-scholarships-and-discounts/scholarships-discounts-and-bursaries/transform-together-scholarships",
+  "nos_scholarship": "Varies",
+  "fully_or_partial": "Partial",
+  "scholarship_website": "https://www.shu.ac.uk/study-here/international/fees-scholarships-and-discounts/scholarships-discounts-and-bursaries/transform-together-scholarships"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e24f3"
+  },
+  "title": "University College London scholarships, UK",
+  "awardedby": "University College London",
+  "student_country": "All",
+  "student_gender": "All",
+  "merit_base": "Merit Based",
+  "edu_subject": "Any",
+  "edu_level": [
+    "Postgraduate",
+    "Postgraduate"
+  ],
+  "scholarship_country": "UK",
+  "scholarship_amt": "Half fee Waiver",
+  "deadline": {
+    "$date": "2023-10-24T18:30:00.000Z"
+  },
+  "apply_link": "https://www.ucl.ac.uk/scholarships/ucl-global-masters-scholarship",
+  "nos_scholarship": 10,
+  "fully_or_partial": "Partial",
+  "scholarship_website": "https://www.ucl.ac.uk/scholarships/ucl-global-masters-scholarship"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e24f4"
+  },
+  "title": "University of New South Wales scholarships, Australia",
+  "awardedby": "University of New South Wales",
+  "student_country": "All",
+  "student_gender": "All",
+  "merit_base": "Merit Based",
+  "edu_subject": "Any",
+  "edu_level": [
+    "Undergraduate",
+    "Postgraduate"
+  ],
+  "scholarship_country": "AU",
+  "scholarship_amt": "Half fee Waiver",
+  "deadline": {
+    "$date": "2023-10-24T18:30:00.000Z"
+  },
+  "apply_link": "https://www.scholarships.unsw.edu.au/scholarships/id/1695/5791#:~:text=Offer%3A%20%2410%2C000%20for%201%20year.&text=Be%20an%20international%20student%20commencing,)%20in%20Term%202%2C%202023. ",
+  "nos_scholarship": 5,
+  "fully_or_partial": "Partial",
+  "scholarship_website": "https://www.scholarships.unsw.edu.au/scholarships/id/1695/5791#:~:text=Offer%3A%20%2410%2C000%20for%201%20year.&text=Be%20an%20international%20student%20commencing,)%20in%20Term%202%2C%202023."
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e24f5"
+  },
+  "title": "Flinders University scholarships Australia",
+  "awardedby": "Flinders University",
+  "student_country": "All",
+  "student_gender": "All",
+  "merit_base": "Merit Based",
+  "edu_subject": "Engineering",
+  "edu_level": [
+    "Undergraduate",
+    "Postgraduate"
+  ],
+  "scholarship_country": "AU",
+  "scholarship_amt": "Full waiver",
+  "deadline": {
+    "$date": "2023-10-04T18:30:00.000Z"
+  },
+  "apply_link": "https://www.flinders.edu.au/scholarships/australian-government-research-training-program-scholarship-international ",
+  "nos_scholarship": "Varies",
+  "fully_or_partial": "Fully Funded",
+  "scholarship_website": "https://www.flinders.edu.au/scholarships/australian-government-research-training-program-scholarship-international"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e24f6"
+  },
+  "title": "City University Miami scholarships, USA ",
+  "awardedby": "City University Miami",
+  "student_country": "All",
+  "student_gender": "All",
+  "merit_base": "Merit Based",
+  "edu_subject": "Engineering",
+  "edu_level": [
+    "Undergraduate",
+    "Postgraduate"
+  ],
+  "scholarship_country": "US",
+  "scholarship_amt": "Full waiver",
+  "deadline": {
+    "$date": "2023-08-04T18:30:00.000Z"
+  },
+  "apply_link": "https://miuniversity.edu/tuition/scholarship/",
+  "nos_scholarship": "Varies",
+  "fully_or_partial": "Fully Funded",
+  "scholarship_website": "https://miuniversity.edu/tuition/scholarship/"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e24f7"
+  },
+  "title": "City University of London scholarships",
+  "scholarship_website": "https://www.city.ac.uk/prospective-students/finance/funding/computing-engineering-scholarship-international"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e24f8"
+  },
+  "title": "University of Massey scholarships, New Zealand ",
+  "scholarship_website": "https://www.massey.ac.nz/study/scholarships-and-awards/ncukmassey-scholarship/"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e24f9"
+  },
+  "title": "University of Adelaide scholarships , Australia ",
+  "scholarship_website": "https://scholarships.adelaide.edu.au/Scholarships/postgraduate-research/all-faculties/australian-government-research-training-program-0"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e24fa"
+  },
+  "title": "Global Futures Scholarship, University of Manchester, UK ",
+  "scholarship_website": "https://www.manchester.ac.uk/study/international/finance-and-scholarships/funding/global-futures-scholarship/index.htm"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e24fb"
+  },
+  "title": "International Sporting Excellence Award, Nottingham University, UK",
+  "scholarship_website": "https://www.nottingham.ac.uk/studywithus/international-applicants/scholarships/sporting-excellence.aspx"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e24fc"
+  },
+  "title": "Jane M. Klausman Women in Business Scholarship at the Bochum University, Germany ",
+  "scholarship_website": "https://www.hochschule-bochum.de/fileadmin/public/Die-BO_Fachbereiche/fb_w/Aktuelles/2023/JMKDescription.pdf"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e24fd"
+  },
+  "title": "University of Sussex scholarships, UK",
+  "scholarship_website": "https://www.sussex.ac.uk/study/fees-funding/masters-scholarships/view/1471-Chancellor-s-International-Business-School-Scholarships"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e24fe"
+  },
+  "title": "2023 Edition of Mauritius-Africa Scholarship Scheme",
+  "scholarship_website": "https://www.hec.gov.rw/fileadmin/user_upload/Announcement_MAURITIUS_2023_new1.pdf"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e24ff"
+  },
+  "title": "Trinity College Dublin scholarships, Ireland",
+  "scholarship_website": "https://www.tcd.ie/study/international/scholarships/Postgraduate/gexpg.php"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2500"
+  },
+  "title": "Cornell University at the Centre for International Studies scholarships, USA",
+  "scholarship_website": "https://einaudi.cornell.edu/engage/funding/ies-graduate-research-grant"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2501"
+  },
+  "title": "Vice-Chancellor’s International Scholarships, Cardiff University, UK ",
+  "scholarship_website": "https://www.cardiff.ac.uk/study/international/funding-and-fees/international-scholarships/vc-international-scholarship"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2502"
+  },
+  "title": "Heinrich Böll Foundation scholarships, Germany",
+  "scholarship_website": "https://www.boell.de/en/application"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2503"
+  },
+  "title": "Shanghai Government Scholarships, China ",
+  "scholarship_website": "http://study.edu.sh.gov.cn/en/ise.html"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2504"
+  },
+  "title": "KAAD scholarships, Germany ",
+  "scholarship_website": "https://www.kaad.de/en/stipendien/stipendienprogramm-1"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2505"
+  },
+  "title": "Miles Morland Foundation African Writers’ Scholarship",
+  "scholarship_website": "https://www.uea.ac.uk/study/fees-and-funding/scholarships-finder/scholarships-a-z/the-miles-morland-foundation-african-writers-scholarship"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2506"
+  },
+  "title": "Royal Holloway University scholarships, UK",
+  "scholarship_website": "https://www.royalholloway.ac.uk/studying-here/fees-and-funding/postgraduate/scholarships/royal-holloway-principals-masters-scholarship/"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2507"
+  },
+  "title": "Universität Hamburg scholarships, Germany ",
+  "scholarship_website": "https://www.uni-hamburg.de/en/internationales/studierende/incoming/studium-mit-abschluss/waehrend-des-studiums/finanzierung/leistungsstipendien.html"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2508"
+  },
+  "title": "Bilkent University scholarships in Turkey",
+  "scholarship_website": "https://w3.bilkent.edu.tr/bilkent/scholarships/#:~:text=Comprehensive%20Scholarship%3A&text=In%20addition%20to%20a%20full,accommodation%20in%20double%20room%20dormitories."
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2509"
+  },
+  "title": "Transilvania University of Brasov scholarships",
+  "scholarship_website": "https://tas.unitbv.ro/"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e250a"
+  },
+  "title": "Aberystwyth University scholarships, UK ",
+  "scholarship_website": "https://ibersdl.org.uk/registration/international-scholarships/"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e250b"
+  },
+  "title": "Padua International Excellence Scholarship",
+  "scholarship_website": "https://www.unipd.it/en/padua-excellence"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e250c"
+  },
+  "title": "Koc University, Turkey scholarships",
+  "scholarship_website": "https://international.ku.edu.tr/scholarships/"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e250d"
+  },
+  "title": "University of Bologna,  Italy scholarships",
+  "scholarship_website": "https://www.unibo.it/en/services-and-opportunities/study-grants-and-subsidies/exemptions-and-incentives/unibo-actions-1-2-study-grants-and-tuition-fee-waivers-for-international-students#:~:text=Renewal%20of%20Unibo%20Action%202,for%20the%20a.y.%202022%2F23."
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e250e"
+  },
+  "title": "The DeepMind Scholarship",
+  "scholarship_website": "https://www.qmul.ac.uk/scholarships/items/deepmind-scholarship-2023.html"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e250f"
+  },
+  "title": "Government of Italy Invest Your Talent Scholarship",
+  "scholarship_website": "https://investyourtalentapplication.esteri.it/SitoInvestYourTalentApplication/progetto.asp"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2510"
+  },
+  "title": "Government of China MOFCOM Scholarship",
+  "scholarship_website": "https://www.campuschina.org/content/details3_343888.html"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2511"
+  },
+  "title": "The Allan and Nesta Ferguson Scholarship",
+  "scholarship_website": "https://www.uea.ac.uk/study/fees-and-funding/scholarships-finder/scholarships-a-z/the-allan-and-nesta-ferguson-scholarship#:~:text=This%20scholarship%20will%20be%20awarded,by%20the%202%20June%202023."
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2512"
+  },
+  "title": "University of Bristol, UK scholarships",
+  "scholarship_website": "https://www.bristol.ac.uk/students/support/finances/scholarships/think-big-postgraduate/"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2513"
+  },
+  "title": "University of Arts London scholarships",
+  "scholarship_website": "https://www.arts.ac.uk/study-at-ual/fees-and-funding/scholarships-search/ual-international-postgraduate-50,000-scholarships"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2514"
+  },
+  "title": "British Council Great Scholarships ",
+  "scholarship_website": "https://study-uk.britishcouncil.org/scholarships-funding/great-scholarships"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2515"
+  },
+  "title": "University of Melbourne, Australia scholarships",
+  "scholarship_website": "https://scholarships.unimelb.edu.au/awards/student-grants#how-to-apply"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2516"
+  },
+  "title": "Nottingham Trent University, UK scholarships",
+  "scholarship_website": "https://www.ntu.ac.uk/international/scholarships-and-fees/scholarships"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2517"
+  },
+  "title": "Erasmus Mundus IMATEC project",
+  "scholarship_website": "https://www.imatec-mundus.eu/scholarship/"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2518"
+  },
+  "title": "University of Derby, UK scholarships ",
+  "scholarship_website": "https://www.derby.ac.uk/study/fees-finance/scholarships/"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2519"
+  },
+  "title": "Monash University, Australia scholarships",
+  "scholarship_website": "https://www.monash.edu/study/fees-scholarships/scholarships/find-a-scholarship/international-tuition-scholarship"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e251a"
+  },
+  "title": "Dongseo University, South Korea scholarships",
+  "scholarship_website": "https://uni.dongseo.ac.kr/eng/index.php?pCode=CostsNAid"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e251b"
+  },
+  "title": "University of Glasgow, UK scholarships",
+  "scholarship_website": "https://www.gla.ac.uk/scholarships/universityofglasgowinternationalleadershipscholarship/"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e251c"
+  },
+  "title": "British Council Scholarships 2023 for Women in STEM",
+  "scholarship_website": "https://www.britishcouncil.org/study-work-abroad/in-uk/scholarship-women-stem?fbclid=IwAR28JBTf1P5loan0tiNoceDp_wWPZUlocy347jza9Xh60Z6N_xvj81R5BQI"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e251d"
+  },
+  "title": "University of Leeds International Excellence Scholarships",
+  "scholarship_website": "https://www.leeds.ac.uk/masters-funding-scholarships/doc/international-excellence-scholarshipss"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e251e"
+  },
+  "title": "University of East Anglia’s School of International Development scholarships",
+  "scholarship_website": "https://www.uea.ac.uk/study/fees-and-funding/scholarships-finder/scholarships-a-z/international-development-full-fees-scholarship"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e251f"
+  },
+  "title": "University of New England, Australia  scholarships",
+  "scholarship_website": "https://www.une.edu.au/research/hdr/scholarships/australian-government-research-training-program-rtp-international-stipend-scholarship"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2520"
+  },
+  "title": "Ca’ Foscari University scholarship, Italy",
+  "scholarship_website": "https://www.unive.it/pag/19545/"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2521"
+  },
+  "title": "Dalarna University in Sweden ",
+  "scholarship_website": "https://www.du.se/en/study-at-du/international-students-applications-admissions-and-registration/scholarships/"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2522"
+  },
+  "title": "NEW ZEALAND SCHOLARSHIPS ",
+  "scholarship_website": "https://www.nzscholarships.govt.nz/"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2523"
+  },
+  "title": "Austrian Development Scholarships ",
+  "scholarship_website": "https://ith-salzburg.at/admission-and-fees/scholarship/"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2524"
+  },
+  "title": "Budapest Metropolitan University Scholarships ",
+  "scholarship_website": "https://www.metubudapest.hu/scholarships-and-grants"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2525"
+  },
+  "title": "University of Nottingham scholarships UK",
+  "scholarship_website": "https://www.nottingham.ac.uk/pgstudy/funding/developing-solutions-masters-scholarship"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2526"
+  },
+  "title": "La Trobe University scholarship, Australia",
+  "scholarship_website": "https://www.latrobe.edu.au/study/scholarships/other/la-trobe-international-scholarship"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2527"
+  },
+  "title": "Minerva Scholarship Fund Foundation",
+  "scholarship_website": "https://www.universiteitleiden.nl/en/scholarships/sea/minerva-scholarship-fund"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2528"
+  },
+  "title": "FAO-Hungarian Government Scholarship",
+  "scholarship_website": "https://www.fao.org/europe/events/detail-events/en/c/1628534/"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2529"
+  },
+  "title": "University of Winnipeg scholarships, Canada ",
+  "scholarship_website": "https://www.uwinnipeg.ca/graduate-studies/funding/presidents-scholarship-for-world-leaders-international.html#:~:text=The%20University%20of%20Winnipeg%20President's%20Scholarships%20for%20World%20Leaders,Students%20are%20valued%20at%20%245%2C000.&text=Candidates%20must%20meet%20the%20following,Be%20an%20international%20student"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e252a"
+  },
+  "title": "Duke University scholarships, USA",
+  "scholarship_website": "https://ousf.duke.edu/merit-scholarships/"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e252b"
+  },
+  "title": "University of Sydney scholarships, Australia ",
+  "scholarship_website": "https://www.sydney.edu.au/scholarships/e/university-sydney-international-scholarship.html"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e252c"
+  },
+  "title": "University of Birmingham scholarships, UK ",
+  "scholarship_website": "https://www.birmingham.ac.uk/international/students/global-masters-scholarships-2023-24.aspx"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e252d"
+  },
+  "title": "University of Saskatchewan scholarships, Canada ",
+  "scholarship_website": "https://admissions.usask.ca/money/scholarships.php#Internationalstudentawards"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e252e"
+  },
+  "title": "The University of Leeds scholarships, UK ",
+  "scholarship_website": "https://www.leeds.ac.uk/masters-funding-scholarships/doc/international-excellence-scholarships"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e252f"
+  },
+  "title": "University of New South Wales scholarships, AUSTRALIA",
+  "scholarship_website": "https://www.scholarships.unsw.edu.au/scholarships/id/1695/5791"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2530"
+  },
+  "title": "Griffith Remarkable Scholarship",
+  "scholarship_website": "https://www.griffith.edu.au/international/scholarships-finance/scholarships/griffith-remarkable-scholarship"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2531"
+  },
+  "title": "University of Glasgow Scholarships, UK ",
+  "scholarship_website": "https://www.gla.ac.uk/scholarships/universityofglasgowinternationalleadershipscholarship/"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2532"
+  },
+  "title": "Australia Awards Scholarships",
+  "scholarship_website": "https://www.dfat.gov.au/people-to-people/australia-awards/australia-awards-scholarships"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2533"
+  },
+  "title": "University of New South Wales scholarships, AUSTRALIA",
+  "scholarship_website": "https://www.scholarships.unsw.edu.au/scholarships/id/1695/5791"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2534"
+  },
+  "title": "Chongqing University of Posts and Telecommunications",
+  "scholarship_website": "https://studyinchina.csc.edu.cn/?9FyBl6JDFLTe=1676514071821#/login"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2535"
+  },
+  "title": "Asian Development Bank 2023-2024 Scholarships",
+  "scholarship_website": "https://www.adb.org/work-with-us/careers/japan-scholarship-program/procedures-applying"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2536"
+  },
+  "title": "Linnaeus University Scholarships program",
+  "scholarship_website": "https://lnu.se/en/education/study-at-linnaeus-university/scholarships/"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2537"
+  },
+  "title": "SSUTD PhD President’s Graduate Fellowship ",
+  "scholarship_website": "https://www.sutd.edu.sg/Admissions/Graduate/Scholarships"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2538"
+  },
+  "title": "Rosenfeld International Scholarships at IOWA University",
+  "scholarship_website": "https://isso.dso.iastate.edu/resources/students_scholars/scholarships/isso-scholarships"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2539"
+  },
+  "title": "University of Houston Victoria Scholarship",
+  "scholarship_website": "https://www.uhv.edu/international/scholarships/merit/#:~:text=All%20undergraduate%20and%20graduate%20students,reflect%20the%20residency%20tuition%20rate."
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e253a"
+  },
+  "title": " Orange Knowledge Programme",
+  "scholarship_website": "https://www.studyinnl.org/finances/orange-knowledge-programme"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e253b"
+  },
+  "title": "ROTARY FOUNDATION SCHOLARSHIP",
+  "scholarship_website": "https://my.rotary.org/en/take-action/apply-grants/global-grants"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e253c"
+  },
+  "title": "ESED Scholarships for Sustainable Energy Development Studies ",
+  "scholarship_website": "https://www.globalelectricity.org/scholarship/"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e253d"
+  },
+  "title": "British Council International Scholarships for Women in STEM",
+  "scholarship_website": "https://www.strath.ac.uk/studywithus/scholarships/britishcouncilwomeninstem/"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e253e"
+  },
+  "title": "Indiana University, USA ",
+  "scholarship_website": "https://international.iupui.edu/admissions/scholarships/index.html"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e253f"
+  },
+  "title": "University of Michigan Dearborn",
+  "scholarship_website": "https://umdearborn.edu/admissions/graduate/how-apply/application-fee-waivers"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2540"
+  },
+  "title": "Queen’s University, CANADA",
+  "scholarship_website": "https://www.queensu.ca/registrar/financial-aid/specific-students/international"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2541"
+  },
+  "title": "Computer Science and Engineering Scholarship",
+  "scholarship_website": "https://www.city.ac.uk/prospective-students/finance/funding/computing-engineering-scholarship-international"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2542"
+  },
+  "title": " University of Groningen Talent Grants ",
+  "scholarship_website": "https://www.rug.nl/education/scholarships/talent-grants-one-year-master_s-programme-theology-_-religious-studies?lang=en"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2543"
+  },
+  "title": "Aga Khan Foundation Scholarship 2023/2024 for Developing Countries",
+  "scholarship_website": "https://the.akdn/our-agencies/aga-khan-foundation/international-scholarship-programme"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2544"
+  },
+  "title": "Monash University Scholarship",
+  "scholarship_website": "https://www.monash.edu/study/fees-scholarships/scholarships/find-a-scholarship/Achieving-Potential-Support-Scholarship-7100"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2545"
+  },
+  "title": "Irish Government Scholarship",
+  "scholarship_website": "https://hea.ie/assets/uploads/2022/12/221109-GOI-IES-Call-2023_FINAL-1.pdf"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2546"
+  },
+  "title": "Monash University International Tuition Scholarships",
+  "scholarship_website": "https://www.monash.edu/study/fees-scholarships/scholarships/find-a-scholarship/international-tuition-scholarship"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2547"
+  },
+  "title": "VU Amsterdam Fellowship Programme ",
+  "scholarship_website": "https://vu.nl/en/education/more-about/scholarships-for-international-masters-students"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2548"
+  },
+  "title": "University of Waikato’s Vice Chancellor's International Excellence Scholarship",
+  "scholarship_website": "https://www.waikato.ac.nz/scholarships/s/university-of-waikato-international-excellence-scholarship"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2549"
+  },
+  "title": "Taiwan International Higher Education Scholarship",
+  "scholarship_website": "https://www.icdf.org.tw/wSite/np?ctNode=31561&mp=2"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e254a"
+  },
+  "title": "Macquarie Vice-Chancellor’s International Scholarships",
+  "scholarship_website": "https://www.mq.edu.au/study/admissions-and-entry/scholarships/international/vice-chancellor-s-international-scholarship"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e254b"
+  },
+  "title": "Nottingham Developing Solutions Scholarships",
+  "scholarship_website": "https://linktw.in/tbhKxy"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e254c"
+  },
+  "title": "Government of Flanders Master Mind Scholarships",
+  "scholarship_website": "https://www.studyinflanders.be/scholarships/master-mind-scholarships"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e254d"
+  },
+  "title": "YORK UNIVERSITY, CANADA",
+  "scholarship_website": "https://bit.ly/3wfh8ri"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e254e"
+  },
+  "title": "Jönköping University Scholarships",
+  "scholarship_website": "https://bit.ly/3XnYwkI"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e254f"
+  },
+  "title": "Maastricht University (UM) Holland-High Potential Scholarship",
+  "scholarship_website": "https://bit.ly/3XvfiOu"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2550"
+  },
+  "title": "Dublin City University ",
+  "scholarship_website": "https://business.dcu.ie/scholarships/john-thompson-scholarship/"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2551"
+  },
+  "title": "Lancaster University",
+  "scholarship_website": "https://bit.ly/3GP3jV9"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2552"
+  },
+  "title": "Charles Darwin University, Australia",
+  "scholarship_website": "https://www.cdu.edu.au/international/how-apply/scholarships"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2553"
+  },
+  "title": "Romania government scholarships",
+  "scholarship_website": "http://www.mae.ro/en/node/10251"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2554"
+  },
+  "title": "Finland Government Scholarships in Finland",
+  "scholarship_website": "https://www.studyinfinland.fi/scholarships"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2555"
+  },
+  "title": "Chinese Government Scholarship at Fudan University",
+  "scholarship_website": "https://studyinchina.csc.edu.cn/?9FyBl6JDFLTe=1673854805727#/login"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2556"
+  },
+  "title": "Monash University International Merit Scholarship",
+  "scholarship_website": "https://bit.ly/3CM2ziv"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2557"
+  },
+  "title": "Abu Dhabi University",
+  "scholarship_website": "https://www.adu.ac.ae/study/financials/scholarships"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2558"
+  },
+  "title": "Barcelona Graduate School of Economics",
+  "scholarship_website": "https://bse.eu/admissions/how-to-apply"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2559"
+  },
+  "title": "Türkiye government scholarship",
+  "scholarship_website": "https://www.turkiyeburslari.gov.tr/"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e255a"
+  },
+  "title": "Deutschlandstipendium at German Universities",
+  "scholarship_website": "https://www.deutschlandstipendium.de/deutschlandstipendium/de/services/english/the-deutschlandstipendium-best-of-both-worlds-for-students"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e255b"
+  },
+  "title": "DAAD Helmut-Schmidt Scholarships for Public Policy and Good Governance",
+  "scholarship_website": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?status=&origin=&subjectGrps=&daad=&q=public%20policy&page=1&detail=50026397"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e255c"
+  },
+  "title": "DAAD Scholarships in Germany for Development-Related Postgraduate Courses",
+  "scholarship_website": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?status=3&origin=190&subjectGrps=F&daad=&intention=&q=&page=1&detail=50076777"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e255d"
+  },
+  "title": "Rosa Luxemburg Stiftung Scholarships",
+  "scholarship_website": "https://www.rosalux.de/en/foundation/studienwerk"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e255e"
+  },
+  "title": "Friedrich Ebert Stiftung Scholarships",
+  "scholarship_website": "https://www.fes.de/studienfoerderung/bewerbung"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e255f"
+  },
+  "title": "Justus Liebig University Scholarship Programme",
+  "scholarship_website": "https://www.uni-giessen.de/en/international-pages/study/grants/closingphase"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2560"
+  },
+  "title": "SBW Berlin Scholarship",
+  "scholarship_website": "https://sbw.berlin/en/sbw-berlin-scholarship/"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2561"
+  },
+  "title": "DAAD Development-Related Postgraduate Courses (EPOS)",
+  "scholarship_website": "https://www.daad.de/en/information-services-for-higher-education-institutions/further-information-on-daad-programmes/epos/"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2562"
+  },
+  "title": "ADB Scholarships at University of Auckland",
+  "scholarship_website": "https://www.auckland.ac.nz/en/study/international-students/scholarships-loans-and-funding/development-scholarships/asian-development-bank-japan-scholarship-program.html"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2563"
+  },
+  "title": "University of Wellington Manaaki New Zealand ",
+  "scholarship_website": "https://www.auckland.ac.nz/en/study/international-students/scholarships-loans-and-funding/development-scholarships/new-zealand-scholarships.html"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2564"
+  },
+  "title": "New Zealand Government Scholarships",
+  "scholarship_website": "https://www.nzscholarships.govt.nz/"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2565"
+  },
+  "title": "University of Otago Scholarships",
+  "scholarship_website": "https://www.otago.ac.nz/international/future-students/international-scholarships/"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2566"
+  },
+  "title": "University of Waikato International Excellence Scholarship",
+  "scholarship_website": "https://www.waikato.ac.nz/scholarships/s/university-of-waikato-international-excellence-scholarship"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2567"
+  },
+  "title": "University of Canterbury (UC) Scholarships",
+  "scholarship_website": "https://www.canterbury.ac.nz/get-started/scholarships/types/international-students/"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2568"
+  },
+  "title": "Auckland University of Technology",
+  "scholarship_website": "https://www.aut.ac.nz/study/fees-and-scholarships/scholarships-and-awards-at-aut/international-scholarships"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2569"
+  },
+  "title": "Lincoln University International Taught  Merit Scholarships",
+  "scholarship_website": "https://www.lincoln.ac.nz/study/scholarships/international-scholarships/"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e256a"
+  },
+  "title": "Tongarewa Scholarship at Victoria University of Wellington",
+  "scholarship_website": "https://www.wgtn.ac.nz/scholarships/current/tongarewa-scholarship"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e256b"
+  },
+  "title": "University of Auckland International Student Excellence Scholarship",
+  "scholarship_website": "https://www.auckland.ac.nz/en/study/scholarships-and-awards/find-a-scholarship/university-of-auckland-international-student-excellence-scholarship-844-all.html"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e256c"
+  },
+  "title": "Government of Japan Young Leaders Program in Governance",
+  "scholarship_website": "https://www.mext.go.jp/en/policy/education/highered/title02/detail02/sdetail02/sdetail02/1374094.htm"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e256d"
+  },
+  "title": "Japanese Government Scholarships",
+  "scholarship_website": "https://www.studyinjapan.go.jp/en/planning/scholarship/"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e256e"
+  },
+  "title": "Japanese government scholarship - Teachers Training Program ",
+  "scholarship_website": "https://www.studyinjapan.go.jp/en/smap-stopj-applications-teacher.html"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e256f"
+  },
+  "title": "Otsuka-Toshimi Scholarship",
+  "scholarship_website": "http://www.otsukafoundation.org/english/index.html"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2570"
+  },
+  "title": "Kubota Fund for developing countries",
+  "scholarship_website": "https://www.kubota-fund.org/"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2571"
+  },
+  "title": "Nomura Foundation scholarships",
+  "scholarship_website": "https://www.nomurafoundation.or.jp/en/"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2572"
+  },
+  "title": "Honjo International Foundation Scholarships ",
+  "scholarship_website": "https://www.hisf.or.jp/en/scholarship/foreigner/"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2573"
+  },
+  "title": "Mitsubishi UFJ Scholarship Fund ",
+  "scholarship_website": "https://www.scholarship.or.jp/english/"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2574"
+  },
+  "title": "Nagasaki University Scholarships for international students ",
+  "scholarship_website": "https://www.liaison.nagasaki-u.ac.jp/en/?page_id=148"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2575"
+  },
+  "title": "Wold Bank’s Program in Economic and Public Policy (PEPP) at the University of Tsukuba",
+  "scholarship_website": "https://pepp.hass.tsukuba.ac.jp/"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2576"
+  },
+  "title": "Keio University \"Design the Future\" Award",
+  "scholarship_website": "https://www.keio.ac.jp/en/student-life/scholarships.html"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2577"
+  },
+  "title": "Aoyama Gakuin Scholarships",
+  "scholarship_website": "https://www.aoyama.ac.jp/en/admission/int_stu/scholarships_support.html"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2578"
+  },
+  "title": "Meiji Gakuin University Japan International Scholarships For Academic Excellence ",
+  "scholarship_website": "https://fis.meijigakuin.ac.jp/en/student/scholarships/"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2579"
+  },
+  "title": "Tohoku University Research Oriented Incoming Students",
+  "scholarship_website": "https://www.insc.tohoku.ac.jp/english/exchange/colabs-short-term-3/"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e257a"
+  },
+  "title": "ETH Zurich Excellence Scholarships",
+  "scholarship_website": "https://ethz.ch/students/en/studies/financial/scholarships/excellencescholarship.html"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e257b"
+  },
+  "title": "UNIL Grants in Switzerland for Foreign Students",
+  "scholarship_website": "https://www.unil.ch/international/en/home/menuinst/etudiants-internationaux/etudiantes-internationaux-reguliers/bourses-master-de-lunil.html"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e257c"
+  },
+  "title": "EPFL Excellence Fellowships",
+  "scholarship_website": "https://www.epfl.ch/education/bachelor/bachelor-excellence-fellowships/"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e257d"
+  },
+  "title": "Graduate Institute Geneva Scholarships",
+  "scholarship_website": "https://www.graduateinstitute.ch/tuition"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e257e"
+  },
+  "title": "University of Geneva Excellence Fellowships",
+  "scholarship_website": "https://www.unige.ch/sciences/en/enseignements/formations/masters/excellencemasterfellowships/"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e257f"
+  },
+  "title": "Geneva Academy of International Humanitarian Law and Human Rights Scholarships",
+  "scholarship_website": "https://www.geneva-academy.ch/masters/study-with-us/scholarships"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2580"
+  },
+  "title": "IMD MBA scholarships",
+  "scholarship_website": "https://www.imd.org/degree/mba/financing/imd-mba-scholarships/"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2581"
+  },
+  "title": "Eiffel Excellence Scholarship Program",
+  "scholarship_website": "https://www.campusfrance.org/en/the-eiffel-scholarship-program"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2582"
+  },
+  "title": "SOPHIE GERMAIN SCHOLARSHIPS",
+  "scholarship_website": "https://www.fondation-hadamard.fr/en/forms/sophie-germain-master-scholarships-2022-v1-master/"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2583"
+  },
+  "title": "ERASMUS MUNDUS SERP-CHEM scholarship ",
+  "scholarship_website": "http://www.master-serp.eu/"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2584"
+  },
+  "title": "ENS International Selection Scholarships",
+  "scholarship_website": "https://www.ens.psl.eu/en/academics/admissions/international-selection"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2585"
+  },
+  "title": "Ampère Excellence Scholarships for International Students",
+  "scholarship_website": "http://www.ens-lyon.fr/en/studies/student-information/grants-and-scholarships#scholarships"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2586"
+  },
+  "title": "Emile Boutmy Scholarships ",
+  "scholarship_website": "https://www.sciencespo.fr/students/en/fees-funding/financial-aid/emile-boutmy-scholarship"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2587"
+  },
+  "title": "Université Paris-Saclay International Scholarships",
+  "scholarship_website": "https://www.universite-paris-saclay.fr/en/admission/bourses-et-aides-financieres/international-masters-scholarships-program-idex"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2588"
+  },
+  "title": "INSEAD Scholarships ",
+  "scholarship_website": "https://www.insead.edu/master-programmes/mba/financing/scholarships"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2589"
+  },
+  "title": "HEC Paris Scholarship",
+  "scholarship_website": "https://www.hec.edu/en/mba-programs/mba/fees-funding/scholarships"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e258a"
+  },
+  "title": "Rennes School of Business scholarships ",
+  "scholarship_website": "https://www.rennes-sb.com/programmes/postgraduate/scholarships-master-programmes/"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e258b"
+  },
+  "title": "Lebesgue scholarships ",
+  "scholarship_website": "https://www.lebesgue.fr/en/content/bourses_master#:~:text=The%20Lebesgue%20Master%20scholarship%20of,Master%20students%20in%20Nantes%20only."
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e258c"
+  },
+  "title": "IMDEA and OROSOUND scholarships ",
+  "scholarship_website": "https://imdeacoustics.univ-lemans.fr/en/admission/scholarships.html"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e258d"
+  },
+  "title": "Labex- Milyon Scholarships",
+  "scholarship_website": "https://milyon.universite-lyon.fr/scholarships-2023-130865.kjsp#:~:text=The%20Excellence%20Laboratory%20Milyon%20offers,to%20evaluation%20by%20the%20labex."
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e258e"
+  },
+  "title": "SMARTS-UP Scholarships ",
+  "scholarship_website": "https://u-paris.fr/en/call-for-applications-smarts-up-scholarship-2023-2024/#:~:text=The%20SMARTS%2DUP%20programme%20is,year%20and%20cannot%20be%20postponed."
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e258f"
+  },
+  "title": "ParisTech",
+  "scholarship_website": "https://ecoledesponts.fr/en/scholarships-and-international-students-support#:~:text=Fondation%20des%20Ponts%20offers%20scholarships,000%E2%82%AC%20over%203%20semesters.&text=%C3%89cole%20des%20Ponts%20ParisTech%20provides,other%20words%20annual%20household%20income."
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2590"
+  },
+  "title": "PGSM PARIS MASTER SCHOLARSHIPS",
+  "scholarship_website": "https://sciencesmaths-paris.fr/en/nos-programmes-en/pgsm-master"
+},
+{
+  "_id": {
+    "$oid": "64d766e4368c84f3e76e2591"
+  },
+  "title": "The « Initiative d’excellence » (IDEX) Scholarships",
+  "scholarship_website": "https://www.univ-grenoble-alpes.fr/universite/ambition-et-strategie/l-initiative-d-excellence-idex/les-appels-a-projets/call-for-applications-idex-master-scholarships-for-the-2022-2023-academic-year-1031106.kjsp"
+}]

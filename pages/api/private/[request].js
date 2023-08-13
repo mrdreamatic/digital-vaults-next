@@ -15,7 +15,7 @@ async function handler(req, res) {
       try{
 
         app.user = await app.firebase.auth.verifyIdToken(req.headers.authtoken);
-        console.log("UR >>>> ", app.user)
+      //  console.log("UR >>>> ", app.user)
         let response  = app.user !== null && app.user !== undefined ? await method(req, app) : {code: 401, msg: "Unauthorized Access"};
         if(response.type === undefined && response.code === undefined){
           res.status(200).send(response)
