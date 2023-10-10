@@ -147,21 +147,18 @@ export default class Questions extends React.Component{
             changed: true
         })
        }
-      // console.log(name, type, e.target.value, data[name]);
+      
        if(type === 'checkbox'){
         let checked = [];
-        if(data[name] === undefined || !Array.isArray(data[name])){
-            checked = [];
-        }else{
+        if(data[name] === undefined && !Array.isArray(data[name])){
+            data[name] = [];
+        }
             data[name].push(e.target.value);
             checked = [...new Set(data[name])];
             checked = !e.target.checked ? checked.filter(x => x !== e.target.value) : checked;
             data[name] = checked;
-        }
         
-        console.log(checked.map((x)=>{
-            return e.target.checked ? x + " >>> Checked" : x;
-        }))
+       
      //  console.log(name, e.target.checked)
         //data[name] = checked;
        
@@ -202,7 +199,8 @@ export default class Questions extends React.Component{
         let resp = await this.props.app.dbset("profile", "profile_detail",params);
         console.log(resp);
         if(resp.code === 200){
-           window.location.reload();
+            await this.props.checkUserData();
+          // window.location.reload();
         }
         
     }

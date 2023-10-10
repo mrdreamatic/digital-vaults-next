@@ -4,23 +4,30 @@ const mongodb = mongo.MongoClient;
 
 class Database {
   constructor(config = false) {
-    ////console.log('>>>>>>>>>>===========', config);
-
     this.response = false;
     this.config = config;
-
-    //console.log('>>>>>>>>>>===========', this.config);
+    this.connection = 0;
   }
 
   connectDB = async () => {
     if (!this.db) {
       this.db = await mongodb.connect(this.config.url);
       this.dbo = this.db.db(this.config.db);
+      this.connected = true;
+      this.connection++;
+   
     }
   };
 
   dbclose = () => {
-    // this.db.close();
+    try{
+      this.db.close();
+      this.connected = false;
+      this.connection--;
+    
+    }catch(ex){
+        console.log(ex);
+    }
   };
 
   objectID(id) {
@@ -36,9 +43,7 @@ class Database {
 
     if (typeof obj === 'object' && Object.keys(obj).length > 0) {
       Object.entries(obj).filter(([k, v]) => {
-        // //console.log(typeof(v), Array.isArray(v) ? 'Array' : 'Object');
-        // //console.log(typeof(k), Array.isArray(k) ? 'Array' : 'Object');
-        //  //console.log(k, v);
+        
         if (
           [
             'string',
@@ -58,20 +63,19 @@ class Database {
             ok.forEach((x) => {
               if (x.toLowerCase() === 'objectid') {
                 try {
-                  //  //console.log('k >>>>',k);
+                  
                   const objbuilder = (key, val) => {
                     let _o = {};
                     _o[key] = val;
                     return _o;
                   };
-                  //   //console.log('id >>>>>', v[x]);
+                 
                   filter['$or'] = [
                     objbuilder(k, mongo.ObjectId(v[x])),
                     objbuilder(k, v[x]),
                   ];
-                  //  //console.log('ObjectID', filter);
+                  
                 } catch (ex) {
-                  //   //console.log('Invalid ObjectID');
                   filter[k] = v[x];
                 }
               } else {
@@ -280,7 +284,7 @@ class Database {
       const result = await this.dbo
         .collection(this.config.prefix + col)
         .deleteOne(qry);
-      console.log(this.config.prefix + col);
+      //console.log(this.config.prefix + col);
       // db.close();
       this.dbclose();
       return result;
@@ -354,7 +358,7 @@ class Database {
       this.dbclose();
       return result;
     } catch (ex) {
-      //console.log(ex);
+      console.log(ex);
       this.dbclose();
     }
   }
@@ -369,7 +373,7 @@ class Database {
     }
   ) {
     await this.connectDB();
-    console.log(this.config ,this.config.prefix + col, qry, attr);
+    //console.log(this.config ,this.config.prefix + col, qry, attr);
     try {
       const o =
         attr.order === undefined || typeof attr.order !== 'object'
@@ -399,7 +403,7 @@ class Database {
         .toArray();
       }
       
-     // this.dbclose();
+      this.dbclose();
       return result;
     } catch (ex) {
       console.log(ex);
@@ -407,24 +411,29 @@ class Database {
     }
   }
 
-  async aggregate(col, qry, limit = 100) {
-    await this.connectDB();
+  async aggregate(col, qry) {
     try {
+      await this.connectDB();
+     // console.log(JSON.stringify(qry))
       const result = await this.dbo
         .collection(this.config.prefix + col)
         .aggregate(qry)
         .toArray();
       //db.close();
       //
+     // console.log(result);
+      this.dbclose();
       return result;
     } catch (ex) {
-      //console.log(ex);
+      console.log(ex);
       this.dbclose();
+      return {error: ex};
     }
   }
-  async distinct(col, qry, order, limit = 100) {
-    await this.connectDB();
+  async distinct(col, qry, limit = 100) {
+   
     try {
+      await this.connectDB();
       const result = await this.dbo
         .collection(this.config.prefix + col)
         .distinct(qry.field, qry.qry);
@@ -439,8 +448,9 @@ class Database {
   }
 
   async sortFind(col, qry, order, limit = 100, skip = 0) {
-    await this.connectDB();
+    
     try {
+      await this.connectDB();
       for (const [key, value] of Object.entries(order)) {
         if (typeof value === 'string' && isNaN(value)) {
           order[key] = value.startsWith('d') || value.startsWith('D') ? -1 : 1;

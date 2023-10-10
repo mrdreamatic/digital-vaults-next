@@ -17,7 +17,7 @@ export default class Header extends React.Component{
             content: <>Account</>,
             a: {href: "#"},
             children: [
-              {content: <>User</>, a: {href: "#"}},
+              {content: <span className="badge bg-primary">{this.props.user !== undefined && this.props.user.profile !== undefined ? `Hello ${this.props.user.profile.name}!` : `Welcome User!`}</span>, a: {href: "#"}},
               {content: <button type="button" className="btn btn-sm btn-light" onClick={async ()=>{
                 await this.props.app.signOut();
                 window.location.reload();

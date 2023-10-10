@@ -24,6 +24,7 @@ const find = async (req, app) => {
     }
     
     let data = await app.db.aggregate(app.request.query.col, [
+        {$match: query.match === undefined ? {} : query.match},
         {
           $group: {
             _id: {
