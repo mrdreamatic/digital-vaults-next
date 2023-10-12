@@ -14,6 +14,7 @@ export default class Scholarships extends React.Component{
 
         this.state = {
             qryFilter: {},
+            loading: false
         };
 
         this.names = {
@@ -202,6 +203,10 @@ export default class Scholarships extends React.Component{
   }
 
   filterData = async (query = this.state.qryFilter) => {
+    this.setState({
+        loading: true
+    });
+    this.forceUpdate();
     await this.checkbookmarks();
     let dataqry = {};this.filter = [];
     if(!this.state.bookmarked){
@@ -249,20 +254,27 @@ export default class Scholarships extends React.Component{
     });
     
     //console.log(this.scholarships);
-    if(this.scholarships.data !== undefined){
+    if(this.scholarships.data !== undefined && this.scholarships.data !== null){
         this.setState({
             scholarships: this.scholarships.data.map((item)=>{
                item.bookmarked = this.bookmarks.includes(item._id);
                 
                 return item;
             }),
-            bookmarks: this.bookmarks
+            bookmarks: this.bookmarks,
+            loading: false
         }, async()=> {
            //console.log(this.state.scholarships);
         });
-        this.forceUpdate();
+        
+    }else{
+        this.setState({
+            scholarships: [],
+            loading: false
+        });
+        
     }
-    
+    this.forceUpdate();
   }
 
   checkbookmarks = async() => {
@@ -359,225 +371,230 @@ export default class Scholarships extends React.Component{
 
     render(){
         return(
-            <div className="scholarships container">
+            <>{
+                this.state.loading ? 
+               <> {this.props.loader}</>
+                :
+                <div className="scholarships container">
                 <div className="p-3"></div>
-                <div className="row">
-                    <div className="col-md-4 col-lg-4 col-xl-3" >
-                        <div style={{position:"sticky","top":"0px"}}>
-                            <h5>Filter By</h5>
-                            <div className="card" style={{overflow:"auto", maxHeight:"90vh"}}>
-                                <div className="card-body">
-                                
-                                    {
-                                        this.state.filter !== undefined && 
-                                        <>
+                        <div className="row">
+                            <div className="col-md-4 col-lg-4 col-xl-3" >
+                                <div style={{position:"sticky","top":"0px"}}>
+                                    <h5>Filter By</h5>
+                                    <div className="card" style={{overflow:"auto", maxHeight:"90vh"}}>
+                                        <div className="card-body">
                                         
-                                        {
-                                            this.state.filter.map((x,i)=>{
-                                                return <div key={i} className="mb-2">
-                                                    <h6>{x.name}</h6>
-                                                    <ul className="list-group mb-1">
-                                                {
-                                                    x.type === 'success' && Array.isArray(x.data) ?
-                                                    x.data.map((d,j)=>{
-                                                        let qb = {};
-                                                        if(Array.isArray(this.state.qryFilter[x.field])){
-                                                            qb[x.field] = this.state.qryFilter[x.field].splice(this.state.qryFilter[x.field].indexOf(d._id.group), 1);
-                                                        }else{
-                                                            qb[x.field] = this.state.qryFilter[x.field] === d._id.group ? undefined : d._id.group;
-                                                        }
-                                                        let checked = this.state.qryFilter[x.field] === d._id.group || (Array.isArray(this.state.qryFilter[x.field]) && this.state.qryFilter[x.field].includes(d._id.group));
-                                                      // console.log(checked, d._id.group, this.state.qryFilter[x.field]);
-                                                        return <div key={j}>
-                                                            {
-                                                                typeof(x.field) === 'string' && x.field.includes('_country') ?
-                                                                <li key={j} className="list-group-item">
-                                                                <Link href={this.queryBuilder(qb, d._id.group)}>
-                                                                <input type="checkbox" id={`${x.field}_${j}`} className="form-check-input" onChange={()=>{
-                                                                   
-                                                                }} checked={this.state.qryFilter[x.field] === d._id.group || (Array.isArray(this.state.qryFilter[x.field]) && this.state.qryFilter[x.field].includes(d._id.group))} name={x.field} />&nbsp;<label htmlFor={`${x.field}_${j}`}>{this.getCountry(d._id.group)} ({d.count})</label>
-                                                                </Link>
-                                                                </li>:
-                                                                <li key={j} className="list-group-item">
-                                                                    <Link href={this.queryBuilder(qb)}>
-                                                                    <input type="checkbox" id={`${x.field}_${j}`} className="form-check-input" onChange={()=>{
-                                                                   
-                                                                }} checked={this.state.qryFilter[x.field] === d._id.group || (Array.isArray(this.state.qryFilter[x.field]) && this.state.qryFilter[x.field].includes(d._id.group))} name={x.field} />&nbsp;<label htmlFor={`${x.field}_${j}`}>{d._id.group} ({d.count})</label>
-                                                                    </Link>
-                                                                </li>
-                                                                
-                                                            }
-                                                            </div>
-                                                    })
-                                                    : <li className="list-group-item list-group-item-danger">
-                                                        {x.msg}
-                                                    </li>
-                                                }
-                                                </ul>
-                                                </div>
-                                            })
-                                        }
-                                        </>
-                                    }
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-md-8 col-lg-9 col-xl-9">
-                    <div className="text-center">
-                    <h2>Scholarships</h2>
-                    
-                    </div>
-                    {this.props.user.account !== null && <div className="card sticky-top mb-2" style={{top:'0px'}}>
-                        <div className="card-body">
-                        <div className="form-check form-switch">
-                            <Link href={this.queryBuilder({bookmarked:!this.state.bookmarked})}>
-                            <input className="form-check-input" type="checkbox" role="switch" id="onlybookmarks" checked={this.state.bookmarked} />
-                            <label className="form-check-label" htmlFor="onlybookmarks">Show Only Saved Scholarship</label>
-                            </Link>
-                        </div>
-                        </div>
-                    </div>}
-                {
-                    this.state.scholarships !== undefined && Array.isArray(this.state.scholarships) && <>
-                    {
-                        this.state.scholarships.length < 1 ?
-                        <div className="card">
-                            <div className="card-body display-4">
-                                No Data available
-                            </div>
-                        </div>
-                        :
-                        <div className="accordion" id={`scholarships`}>
-                        {
-                            this.state.scholarships.map((x, i)=>{
-                              
-                                return <>
-                                <div className="card" key={i}>
-                                    
-                                    <div className="card-body">
-                                    <div className="row">
-                                        <div className="col-10">
-                                        <h3 className="card-title text-blue m-0">{x.title}</h3>
-                                        </div>
-                                        <div className="col-2 text-end">
-                                            <button className="btn btn-bookmark" onClick={()=>{
-                                                if(this.props.user.account === null){
-                                                    this.props.router.push('/login');
-                                                    return;
-                                                }else{
-                                                    this.bookmarkItem(x._id, !x.bookmarked)
-                                                }
+                                            {
+                                                this.state.filter !== undefined && 
+                                                <>
                                                 
-                                            }}>
-                                            <i className={`${x.bookmarked ? `fa-solid` : `fa-regular`} fa-bookmark`}></i>
-                                            </button>
-                                        </div>
-                                        <div className="col-12">
-                                            <hr />
-                                            
-                                            <div className="d-flex" style={{gap:'5px', flexWrap:"wrap"}}>
-                                                        { 
-                                                            Object.entries(this.names).map((v, ji)=>{
-                                                                
-                                                                if(x[v[0]] !== undefined && x[v[0]] !== '' && x[v[0]] !== null && x[v[0]] !== 'All' && x[v[0]] !== 'Any'){
-                                                                    return (<div className="d-inline-block" style={{flexGrow:"1"}} key={ji}>
-                                                                        <div className="card mb-1" style={{padding:"5px 10px"}}>
-                                                                            
-                                                                                {
-                                                                                    typeof(v[1]) === 'object' ?
-                                                                                    <>{this.convert(v[1], x[v[0]])}</> :
-                                                                                    <><strong>{v[1]}:</strong> {x[v[0]]}</>
-                                                                                }
-                                                                        
-                                                                        </div>
-                                                                    </div>)
+                                                {
+                                                    this.state.filter.map((x,i)=>{
+                                                        return <div key={i} className="mb-2">
+                                                            <h6>{x.name}</h6>
+                                                            <ul className="list-group mb-1">
+                                                        {
+                                                            x.type === 'success' && Array.isArray(x.data) ?
+                                                            x.data.map((d,j)=>{
+                                                                let qb = {};
+                                                                if(Array.isArray(this.state.qryFilter[x.field])){
+                                                                    qb[x.field] = this.state.qryFilter[x.field].splice(this.state.qryFilter[x.field].indexOf(d._id.group), 1);
+                                                                }else{
+                                                                    qb[x.field] = this.state.qryFilter[x.field] === d._id.group ? undefined : d._id.group;
                                                                 }
-                                                                
+                                                                let checked = this.state.qryFilter[x.field] === d._id.group || (Array.isArray(this.state.qryFilter[x.field]) && this.state.qryFilter[x.field].includes(d._id.group));
+                                                            // console.log(checked, d._id.group, this.state.qryFilter[x.field]);
+                                                                return <div key={j}>
+                                                                    {
+                                                                        typeof(x.field) === 'string' && x.field.includes('_country') ?
+                                                                        <li key={j} className="list-group-item">
+                                                                        <Link href={this.queryBuilder(qb, d._id.group)}>
+                                                                        <input type="checkbox" id={`${x.field}_${j}`} className="form-check-input" onChange={()=>{
+                                                                        
+                                                                        }} checked={this.state.qryFilter[x.field] === d._id.group || (Array.isArray(this.state.qryFilter[x.field]) && this.state.qryFilter[x.field].includes(d._id.group))} name={x.field} />&nbsp;<label htmlFor={`${x.field}_${j}`}>{this.getCountry(d._id.group)} ({d.count})</label>
+                                                                        </Link>
+                                                                        </li>:
+                                                                        <li key={j} className="list-group-item">
+                                                                            <Link href={this.queryBuilder(qb)}>
+                                                                            <input type="checkbox" id={`${x.field}_${j}`} className="form-check-input" onChange={()=>{
+                                                                        
+                                                                        }} checked={this.state.qryFilter[x.field] === d._id.group || (Array.isArray(this.state.qryFilter[x.field]) && this.state.qryFilter[x.field].includes(d._id.group))} name={x.field} />&nbsp;<label htmlFor={`${x.field}_${j}`}>{d._id.group} ({d.count})</label>
+                                                                            </Link>
+                                                                        </li>
+                                                                        
+                                                                    }
+                                                                    </div>
                                                             })
+                                                            : <li className="list-group-item list-group-item-danger">
+                                                                {x.msg}
+                                                            </li>
                                                         }
+                                                        </ul>
                                                         </div>
-                                                        <div className="accordion-item  mt-2">
-                                            <h2 className="accordion-header" id={`heading${x._id}`}>
-                                            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={`#collapse${x._id}`} aria-expanded="true" aria-controls={`collapse${x._id}`}>
-                                                More Details
-                                            </button>
-                                            </h2>
-                                            <div id={`collapse${x._id}`} className="accordion-collapse collapse" aria-labelledby={`heading${x._id}`} data-bs-parent={`#scholarships`}>
-                                            <div className="accordion-body">
-                                                
-                                                {
-                                                    x.about_scholarship !== '' && 
-                                                    <div className="pb-2">
-                                                        <h5 className="m-0 text-blue">About Scholarship</h5>
-                                                        <div dangerouslySetInnerHTML={{__html: x.about_scholarship}} />
-                                                    </div>
+                                                    })
                                                 }
-                                                {
-                                                    x.eligibility !== '' && 
-                                                    <div className="pb-2"><h5 className="m-0 text-blue">Eligibility</h5>
-                                                    <div dangerouslySetInnerHTML={{__html: x.eligibility}} /></div>
-                                                }
-                                                {
-                                                    x.application_process !== '' && 
-                                                    <div className="pb-2"><h5 className="m-0 text-blue">Application Process</h5>
-                                                    <div dangerouslySetInnerHTML={{__html: x.application_process}} /></div>
-                                                }
-                                                {
-                                                    x.other_details !== '' && 
-                                                    <div className="pb-2"><h5 className="m-0 text-blue">Other Details</h5>
-                                                    <div dangerouslySetInnerHTML={{__html: x.other_details}} /></div>
-                                                }
-                                                <div>
-                                                   
-                                                    {
-                                                        x.contact_email !== '' && 
-                                                        <a className="btn btn-blue" href={`mailto:${x.contact_email}`} title="Send Mail"><i className="fa-regular fa-envelope"></i></a>
-                                                    }
-                                                   
-                                                    {
-                                                        x.phone_number !== '' && 
-                                                        <a className="btn btn-blue" href={`tel:${x.phone_number}`} title="Call"><i className="fa-solid fa-phone"></i></a>
-                                                    }
-                                                    
-                                                </div>
-                                                
-                                                    </div>
-                                                </div>
-                                            </div>
+                                                </>
+                                            }
                                         </div>
-                                    </div>
-                                    
-                                        
-                                        
-                                    </div>
-                                    <div className="card-footer text-muted">
-                                        <div className="row">
-                                            <div className="col-6 align-self-center">
-                                            
-                                            </div>
-                                            <div className="col-6">
-                                            <div className="text-end">
-                                            <a href={x.apply_link !== undefined ? x.apply_link : "#"} rel="noreferrer" target="_blank" className="btn btn-info">Apply Now</a>
-                                            </div>
-                                            </div>
-                                        </div>
-                                        
                                     </div>
                                 </div>
-                                <div className="p-2"></div>
-                                </>
-                            })
+                            </div>
+                            <div className="col-md-8 col-lg-9 col-xl-9">
+                            <div className="text-center">
+                            <h2>Scholarships</h2>
+                            
+                            </div>
+                            {this.props.user.account !== null && <div className="card sticky-top mb-2" style={{top:'0px'}}>
+                                <div className="card-body">
+                                <div className="form-check form-switch">
+                                    <Link href={this.queryBuilder({bookmarked:!this.state.bookmarked})}>
+                                    <input className="form-check-input" type="checkbox" role="switch" id="onlybookmarks" checked={this.state.bookmarked} />
+                                    <label className="form-check-label" htmlFor="onlybookmarks">Show Only Saved Scholarship</label>
+                                    </Link>
+                                </div>
+                                </div>
+                            </div>}
+                        {
+                            this.state.scholarships !== undefined && Array.isArray(this.state.scholarships) && <>
+                            {
+                                this.state.scholarships.length < 1 ?
+                                <div className="card">
+                                    <div className="card-body display-4">
+                                        No Data available
+                                    </div>
+                                </div>
+                                :
+                                <div className="accordion" id={`scholarships`}>
+                                {
+                                    this.state.scholarships.map((x, i)=>{
+                                    
+                                        return <>
+                                        <div className="card" key={i}>
+                                            
+                                            <div className="card-body">
+                                            <div className="row">
+                                                <div className="col-10">
+                                                <h3 className="card-title text-blue m-0">{x.title}</h3>
+                                                </div>
+                                                <div className="col-2 text-end">
+                                                    <button className="btn btn-bookmark" onClick={()=>{
+                                                        if(this.props.user.account === null){
+                                                            this.props.router.push('/login');
+                                                            return;
+                                                        }else{
+                                                            this.bookmarkItem(x._id, !x.bookmarked)
+                                                        }
+                                                        
+                                                    }}>
+                                                    <i className={`${x.bookmarked ? `fa-solid` : `fa-regular`} fa-bookmark`}></i>
+                                                    </button>
+                                                </div>
+                                                <div className="col-12">
+                                                    <hr />
+                                                    
+                                                    <div className="d-flex" style={{gap:'5px', flexWrap:"wrap"}}>
+                                                                { 
+                                                                    Object.entries(this.names).map((v, ji)=>{
+                                                                        
+                                                                        if(x[v[0]] !== undefined && x[v[0]] !== '' && x[v[0]] !== null && x[v[0]] !== 'All' && x[v[0]] !== 'Any'){
+                                                                            return (<div className="d-inline-block" style={{flexGrow:"1"}} key={ji}>
+                                                                                <div className="card mb-1" style={{padding:"5px 10px"}}>
+                                                                                    
+                                                                                        {
+                                                                                            typeof(v[1]) === 'object' ?
+                                                                                            <>{this.convert(v[1], x[v[0]])}</> :
+                                                                                            <><strong>{v[1]}:</strong> {x[v[0]]}</>
+                                                                                        }
+                                                                                
+                                                                                </div>
+                                                                            </div>)
+                                                                        }
+                                                                        
+                                                                    })
+                                                                }
+                                                                </div>
+                                                                <div className="accordion-item  mt-2">
+                                                    <h2 className="accordion-header" id={`heading${x._id}`}>
+                                                    <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={`#collapse${x._id}`} aria-expanded="true" aria-controls={`collapse${x._id}`}>
+                                                        More Details
+                                                    </button>
+                                                    </h2>
+                                                    <div id={`collapse${x._id}`} className="accordion-collapse collapse" aria-labelledby={`heading${x._id}`} data-bs-parent={`#scholarships`}>
+                                                    <div className="accordion-body">
+                                                        
+                                                        {
+                                                            x.about_scholarship !== '' && 
+                                                            <div className="pb-2">
+                                                                <h5 className="m-0 text-blue">About Scholarship</h5>
+                                                                <div dangerouslySetInnerHTML={{__html: x.about_scholarship}} />
+                                                            </div>
+                                                        }
+                                                        {
+                                                            x.eligibility !== '' && 
+                                                            <div className="pb-2"><h5 className="m-0 text-blue">Eligibility</h5>
+                                                            <div dangerouslySetInnerHTML={{__html: x.eligibility}} /></div>
+                                                        }
+                                                        {
+                                                            x.application_process !== '' && 
+                                                            <div className="pb-2"><h5 className="m-0 text-blue">Application Process</h5>
+                                                            <div dangerouslySetInnerHTML={{__html: x.application_process}} /></div>
+                                                        }
+                                                        {
+                                                            x.other_details !== '' && 
+                                                            <div className="pb-2"><h5 className="m-0 text-blue">Other Details</h5>
+                                                            <div dangerouslySetInnerHTML={{__html: x.other_details}} /></div>
+                                                        }
+                                                        <div>
+                                                        
+                                                            {
+                                                                x.contact_email !== '' && 
+                                                                <a className="btn btn-blue" href={`mailto:${x.contact_email}`} title="Send Mail"><i className="fa-regular fa-envelope"></i></a>
+                                                            }
+                                                        
+                                                            {
+                                                                x.phone_number !== '' && 
+                                                                <a className="btn btn-blue" href={`tel:${x.phone_number}`} title="Call"><i className="fa-solid fa-phone"></i></a>
+                                                            }
+                                                            
+                                                        </div>
+                                                        
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                                
+                                                
+                                            </div>
+                                            <div className="card-footer text-muted">
+                                                <div className="row">
+                                                    <div className="col-6 align-self-center">
+                                                    
+                                                    </div>
+                                                    <div className="col-6">
+                                                    <div className="text-end">
+                                                    <a href={x.apply_link !== undefined ? x.apply_link : "#"} rel="noreferrer" target="_blank" className="btn btn-info">Apply Now</a>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                        <div className="p-2"></div>
+                                        </>
+                                    })
+                                }
+                                </div>
+                                
+                            }
+                            </>
                         }
+                            </div>
                         </div>
-                        
-                    }
-                    </>
-                }
+                        <div className="p-3"></div>
                     </div>
-                </div>
-                <div className="p-3"></div>
-            </div>
+            }</>
         )
     }
 }

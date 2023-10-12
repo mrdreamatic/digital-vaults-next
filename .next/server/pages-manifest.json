@@ -2,7 +2,7 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
+  "/api/private/[request]": "pages/api/private/[request].js",
   "/": "pages/index.js",
-  "/api/public/[request]": "pages/api/public/[request].js",
-  "/profile": "pages/profile.js"
+  "/api/public/[request]": "pages/api/public/[request].js"
 }

@@ -2,18 +2,13 @@ import App from 'next/app'
 import { useEffect, useState } from 'react'
 import '../styles/globals.css';
 import '../styles/globals.scss';
-import client from '../inc/client'
+import client from '../inc/client';
+import loaderImg from './assets/loader.gif';
+import Image from 'next/image';
 
 function MyApp({ Component, pageProps, request }) {
-  const loader = <div className='preloader'>
-    <div className="pencil">
-    <div className="pencil__ball-point"></div>
-    <div className="pencil__cap"></div>
-    <div className="pencil__cap-base"></div>
-    <div className="pencil__middle"></div>
-    <div className="pencil__eraser"></div>
-  </div>
-  <div className="line"></div>
+  const loader = <div className='pre-loader d-flex ' style={{position: "fixed", zIndex: "99", left:"0", top:"0", height:"100vh",width:"100vw", justifyContent:"center", alignItems:"center"}}>
+    <Image src={loaderImg} alt='loader' />
   </div>
   const [app, setApp] = useState(null);
  // console.log("8.)",_client);
