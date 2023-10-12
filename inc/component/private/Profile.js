@@ -10,7 +10,8 @@ export default class Profile extends React.Component{
         this.data = {};
         this.state = {
             data: this.data,
-            loaded: false
+            loaded: false,
+            profile: {}
         }
         this.country = country
         
@@ -25,9 +26,11 @@ export default class Profile extends React.Component{
         if(!this.state.loaded){
             this.country = country;
         }
-        console.log(1)
+        
+        console.log(this.props.user)
         this.setState({
-            loaded: true
+            loaded: true,
+            profile: this.props.user.profile !== undefined ? this.props.user.profile : {}
         })
     }
 
@@ -107,7 +110,7 @@ export default class Profile extends React.Component{
              
             <div className="form-group">
                 <h6>Your country</h6>
-                <select id={`country`} required name={`country`} onChange={this.updateModel} defaultValue={this.getModel('country')} className="form-control">
+                <select id={`country`} required name={`country`} onChange={this.updateModel} className="form-control" defaultValue={this.state.profile['country']}>
                 <option value={''}>Select your country</option>
                 {
                     this.country.map((v, i)=>{
@@ -130,7 +133,7 @@ export default class Profile extends React.Component{
                         </div>
                     }
                     
-                    <input type="text" required minLength={4} maxLength={20} id={`mobile`} name={`mobile`} onChange={this.updateModel} defaultValue={this.getModel('mobile')} className="form-control" placeholder="Your mobile number" />
+                    <input type="text" required minLength={4} maxLength={20} id={`mobile`} name={`mobile`} onChange={this.updateModel} defaultValue={this.state.profile['mobile']} className="form-control" placeholder="Your mobile number" />
                 </div>
             </div>
             <div className="form-group">

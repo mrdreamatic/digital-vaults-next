@@ -200,6 +200,7 @@ export default class Questions extends React.Component{
         console.log(resp);
         if(resp.code === 200){
             await this.props.checkUserData();
+            alert('Profile Saved!')
           // window.location.reload();
         }
         

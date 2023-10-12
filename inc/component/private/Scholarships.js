@@ -1,19 +1,19 @@
 import React from "react";
-import Questions from "./Questions";
+
 import country from './countries.json';
-import Profile from "./Profile";
+
+
 import Link from "next/link";
 
 
 export default class Scholarships extends React.Component{
-
+    
     constructor(props){
 
         super(props);
 
         this.state = {
             qryFilter: {},
-            query: {}
         };
 
         this.names = {
@@ -31,24 +31,124 @@ export default class Scholarships extends React.Component{
             "fully_or_partial": "Fully or Partialy Funded",
            // "scholarship_website": "Official Scholarship Website"
         }
+        //console.log(this.props);
+    }
+
+
+    async componentDidMount(){
+        
+        this.flist = {
+            "scholarship_country" : "Scholarship Country",
+            "fully_or_partial": "Fully or Partialy Funded",
+            "merit_base": "Base",
+            "edu_subject": "Education Subject",
+           // "edu_level": {type: 'array', title: "Education Level"},
+            //"awardedby": "Awarded By",
+           // "student_country": "Student's Country",
+           // "student_gender": "Student's Gender",
+            
+            //"scholarship_amt": "Scholarship Amount",
+           // "deadline": {type: 'date', title: "Deadline"},
+          //  "apply_link": "Application Link",
+            "nos_scholarship": "Numbers of Scholarships",
+            
+           // "scholarship_website": "Official Scholarship Website"
+        };
+       
+        if(this.query === undefined){
+            this.query = this.getQuery(this.props.router.asPath.replace(/\/(.*)\?/i, ""));
+        }
+        console.log('sp', this.query);
+        this.setState({
+            qryFilter: (this.query),
+            bookmarked: this.query.bookmarked !== undefined && this.query.bookmarked === 'true'
+        }, async ()=>{
+            
+            
+            await this.filterData(this.state.qryFilter);
+        });
+        
+        this.forceUpdate();
+        
+       this.handleLink();
     }
 
     getQuery = (str) => {
         let query = {};
-        new URLSearchParams(str).forEach((qv, qk)=>{
-            if(query[qk] === undefined){
-                query[qk] = qv;
-            }else{
-                if(typeof(query[qk]) === 'string'){
-                    query[qk] = [query[qk]];
+        if(str.startsWith('?')){
+           str =  str.substr(1);
+        }
+        str = str.split('&');
+        str.forEach((q)=>{
+            q = q.split('=');
+            if(q.length > 1){
+                if(query[q[0]] === undefined){
+                    query[q[0]] = q[1];
+                }else if(typeof(query[q[0]])==='string'){
+                    query[q[0]] = [query[q[0]]];
+                    
                 }
                 
-                query[qk].push(qv);
+                if(Array.isArray(query[q[0]])){
+                    query[q[0]].push(q[1]);
+                }
+                
             }
             
-        });
+        })
+        
+       
         return query;
     }
+
+
+  setQuery = (obj, rem = '') => {
+    let qs = [];
+    Object.entries(obj).forEach((o)=>{
+        if(Array.isArray(o[1])){
+            o[1].forEach((oa)=>{
+                if(oa !== rem){
+                    qs.push(`${o[0]}=${encodeURIComponent(oa)}`);
+                }
+            })
+        }else{
+            qs.push(`${o[0]}=${encodeURIComponent(o[1])}`);
+        }
+        
+    });
+    return qs.join('&');
+  }
+
+  queryBuilder = (qry = {}, rem = '') => {
+    let qs =this.getQuery(decodeURI(this.props.router.asPath.replace(/\/(.*)\?/i, "")));
+    qs = this.filterQuery(qs);
+   // console.log(qs, qry, rem);
+    
+    Object.entries(qry).forEach((q)=>{
+      
+      if(q[1] === undefined || q[1] === ''){
+        delete(qry[q[0]]);
+        
+        if(qs[q[0]] !== undefined){
+          delete(qs[q[0]]);
+        }
+      }else{
+        if(typeof(qs[q[0]]) === 'string'){
+            qry[q[0]] = [qs[q[0]]];
+        }
+        if(Array.isArray(qry[q[0]])){
+
+            qry[q[0]].push(q[1]);
+        }
+       // //console.log(qry)
+       // qs[q[0]].push(q[1]);
+      }
+    })
+    qs = {...qs, ...qry};
+    qs = this.setQuery(qs);
+   // console.log(qs)
+    return (`${this.props.router.route}?${qs}`);
+  }
     
   handleLink = async () => {
     const handleRouteChange = (url, { shallow }) => {
@@ -57,13 +157,7 @@ export default class Scholarships extends React.Component{
           shallow ? "with" : "without"
         } shallow routing`
       );
-      let query = Object.fromEntries(
-        new URLSearchParams(decodeURI(url.replace(/\/(.*)\?/i, "")))
-      );
       
-      this.setState({
-        loadingdata: true
-      });
 
       //let qry = query.s === undefined ? this.state.find : query.s;
       
@@ -78,78 +172,119 @@ export default class Scholarships extends React.Component{
             shallow ? "with" : "without"
           } shallow routing`
         );
-        let query = Object.fromEntries(
-          new URLSearchParams(decodeURI(url.replace(/\/(.*)\?/i, "")))
-        );
+        this.query = this.getQuery(decodeURI(url.replace(/\/(.*)\?/i, "")));
         
-        let qry = query.s === undefined ? this.state.find : query.s;
         this.setState({
-            query: query
-        });
+            qryFilter: this.query,
+            bookmarked: this.query.bookmarked !== undefined && this.query.bookmarked === 'true'
+        }), () => {
+            
+            
+        };
+
+        await this.filterData(this.query);
+        console.log(this.state)
+        this.forceUpdate(); 
         
-        this.forceUpdate();
-        this.filterData(query);
-        //console.log(query)
-       // let exact= query.exact === undefined ? this.state.exact : query.exact;
-      //  console.log(exact);
-     //   await this.loadCats(query.catId);
-      //  await this.loadData(qry, query.catId, exact);
        
       }
     );
   };
 
-  filterData = async (query = this.state.query) => {
-    let dataqry = {$and: Object.entries(query).map((obj)=>{
-        let theObj = {};
-        if(Array.isArray(obj[1])){
-            theObj = {$or: obj[1].map((ai)=>{
-                let nai = {};
-                nai[obj[0]] = ai;
-                return nai;
-            })};
-        }else{
-            theObj[obj[0]] = obj[1];
+  filterQuery = (query) => {
+    let o = {}
+     Object.keys(this.names).forEach((s)=>{
+        if(query[s] !== undefined){
+            o[s] = query[s];
         }
-        return theObj;
-    })};
-    console.log(dataqry);
+    });
+    return o;
+  }
+
+  filterData = async (query = this.state.qryFilter) => {
+    await this.checkbookmarks();
+    let dataqry = {};this.filter = [];
+    if(!this.state.bookmarked){
+        query = this.filterQuery(query);
+        dataqry = {$and: Object.entries(query).map((obj)=>{
+            let theObj = {};
+            if(Array.isArray(obj[1])){
+                theObj = {$or: obj[1].map((ai)=>{
+                    let nai = {};
+                    nai[obj[0]] = ai;
+                    return nai;
+                })};
+            }else{
+                theObj[obj[0]] = obj[1];
+            }
+            return theObj;
+        })};
+        if(dataqry['$and'].length < 1){
+            dataqry = {}
+        }
+        //console.log(dataqry);
+        
+    }else{
+        dataqry = {$or: this.bookmarks.map(b => {return {'_id': {'ObjectId': b} }}) };
+        
+        
+    }
+    Object.entries(this.flist).forEach(async (x)=>{
+        ////console.log(x);
+        setTimeout(async()=>{
+            let filter = await this.filterlist(this.state.bookmarked ? dataqry : {}, x[0], x[1]);
+        
+    
+        this.filter.push(filter);
+        this.setState({
+            filter: this.filter
+        });
+        
+        this.forceUpdate();
+        })
+    }, 500);
+   // console.log(this.props.user.account.uid, this.bookmarks);
     this.scholarships = await this.props.app.db('GET','find','scholarship', dataqry, {
         limit: 50
     });
-    //console.log(country);
     
-    this.setState({
-        scholarships: this.scholarships.data,
-        query: query
-    }, ()=> {
-       
-    });
-    this.forceUpdate();
+    //console.log(this.scholarships);
+    if(this.scholarships.data !== undefined){
+        this.setState({
+            scholarships: this.scholarships.data.map((item)=>{
+               item.bookmarked = this.bookmarks.includes(item._id);
+                
+                return item;
+            }),
+            bookmarks: this.bookmarks
+        }, async()=> {
+           //console.log(this.state.scholarships);
+        });
+        this.forceUpdate();
+    }
+    
   }
 
-  queryBuilder = (qry = {}) => {
-    let qs =this.getQuery(decodeURI(this.props.router.asPath.replace(/\/(.*)\?/i, "")));
+  checkbookmarks = async() => {
+   // let ids = data.map((i)=>{ return i._id });
+   if(this.props.user.account !== null){
+    this.bookmarks = await this.props.app.db('GET','findone','user_bookmarks', {_id: this.props.user.account.uid});
+    if(this.bookmarks.data !== undefined){
+        this.bookmarks = this.bookmarks.data.item
+    }else{
+
+        //console.log(this.bookmarks);
+        this.bookmarks = []
+    }
+   }else{
+    this.bookmarks = []
+   }
     
-    console.log(qs,qry);
-    Object.entries(qry).forEach((q)=>{
-      
-      if(q[1] === undefined || q[1] === ''){
-        delete(qry[q[0]]);
-        if(qs[q[0]] !== undefined){
-          delete(qs[q[0]]);
-        }
-      }
-    })
-    qs = {...qs, ...qry};
-    
-    qs = (new URLSearchParams(qs).toString())
-    return (`${this.props.router.route}?${qs}`);
   }
 
-    filterlist = async (field = 'scholarship_country', fieldname = 'Scholarship Country') => {
+    filterlist = async (match = {}, field = 'scholarship_country', fieldname = 'Scholarship Country') => {
         let finder = {$and: []};
-        Object.entries((this.state.query)).forEach((it)=>{
+        Object.entries((this.state.qryFilter)).forEach((it)=>{
             let fltr = {};
             fltr[it[0]] = it[1];
             finder['$and'].push(fltr);
@@ -158,7 +293,7 @@ export default class Scholarships extends React.Component{
             finder['$and'].push({});
         }
         let data = await this.props.app.db('GET','filter','scholarship',{
-            field: field, match: {}
+            field: field, match: match
         });
         
         data.data = data.data !== undefined ? data.data : [];
@@ -167,53 +302,6 @@ export default class Scholarships extends React.Component{
         return data;
     }
 
-    async componentDidMount(){
-        
-        let query = this.getQuery(decodeURI(this.props.router.asPath.replace(/\/(.*)\?/i, "")));
-          console.log(query);
-        this.setState({
-           query: query
-        }, async ()=>{
-            this.filter = [];
-            this.flist = {
-                "scholarship_country" : "Scholarship Country",
-                "fully_or_partial": "Fully or Partialy Funded",
-                "merit_base": "Base",
-                "edu_subject": "Education Subject",
-               // "edu_level": {type: 'array', title: "Education Level"},
-                //"awardedby": "Awarded By",
-               // "student_country": "Student's Country",
-               // "student_gender": "Student's Gender",
-                
-                //"scholarship_amt": "Scholarship Amount",
-               // "deadline": {type: 'date', title: "Deadline"},
-              //  "apply_link": "Application Link",
-                "nos_scholarship": "Numbers of Scholarships",
-                
-               // "scholarship_website": "Official Scholarship Website"
-            };
-            Object.entries(this.flist).forEach(async (x)=>{
-                //console.log(x);
-                setTimeout(async()=>{
-                    let filter = await this.filterlist(x[0], x[1]);
-                
-               
-                this.filter.push(filter);
-                this.setState({
-                    filter: this.filter
-                });
-                
-                this.forceUpdate();
-                })
-            }, 500);
-            this.forceUpdate();
-            await this.filterData(this.state.query);
-        });
-        
-        
-        
-       this.handleLink();
-    }
 
     convert(obj, val){
         if(val !== undefined){
@@ -241,6 +329,34 @@ export default class Scholarships extends React.Component{
 
     shouldComponentUpdate = () => false;
 
+    bookmarkItem = async(id, add = true) =>{
+        
+        let resp = await this.props.app.dbset("bookmark", "user_bookmarks",{id: id, mode: add});
+        //console.log(resp);
+        if(resp.code === 200){
+            if(add){
+                this.bookmarks.push(id);
+            }else{
+                let newbookmarks = this.bookmarks.filter(x => x !== resp.data.removed);
+                //console.log(newbookmarks);
+                this.bookmarks = newbookmarks;
+            }
+            this.setState({
+                scholarships: this.state.scholarships.map((item)=> {
+                   item.bookmarked = this.bookmarks.includes(item._id);
+                    
+                    return item;
+                })
+            });
+            this.forceUpdate();
+            
+           // await this.props.checkUserData();
+            // window.location.reload();
+        }
+            
+        
+    }
+
     render(){
         return(
             <div className="scholarships container">
@@ -248,9 +364,10 @@ export default class Scholarships extends React.Component{
                 <div className="row">
                     <div className="col-md-4 col-lg-4 col-xl-3" >
                         <div style={{position:"sticky","top":"0px"}}>
-                            <h1>Filter By</h1>
+                            <h5>Filter By</h5>
                             <div className="card" style={{overflow:"auto", maxHeight:"90vh"}}>
                                 <div className="card-body">
+                                
                                     {
                                         this.state.filter !== undefined && 
                                         <>
@@ -261,35 +378,36 @@ export default class Scholarships extends React.Component{
                                                     <h6>{x.name}</h6>
                                                     <ul className="list-group mb-1">
                                                 {
-                                                    x.type === 'success' ?
+                                                    x.type === 'success' && Array.isArray(x.data) ?
                                                     x.data.map((d,j)=>{
                                                         let qb = {};
-                                                        if(Array.isArray(this.state.query[x.field])){
-                                                            qb[x.field] = this.state.query[x.field].splice(this.state.query[x.field].indexOf(d._id.group), 1);
+                                                        if(Array.isArray(this.state.qryFilter[x.field])){
+                                                            qb[x.field] = this.state.qryFilter[x.field].splice(this.state.qryFilter[x.field].indexOf(d._id.group), 1);
                                                         }else{
-                                                            qb[x.field] = this.state.query[x.field] === d._id.group ? undefined : d._id.group;
+                                                            qb[x.field] = this.state.qryFilter[x.field] === d._id.group ? undefined : d._id.group;
                                                         }
-                                                        console.log(qb);
-                                                        return <>
+                                                        let checked = this.state.qryFilter[x.field] === d._id.group || (Array.isArray(this.state.qryFilter[x.field]) && this.state.qryFilter[x.field].includes(d._id.group));
+                                                      // console.log(checked, d._id.group, this.state.qryFilter[x.field]);
+                                                        return <div key={j}>
                                                             {
                                                                 typeof(x.field) === 'string' && x.field.includes('_country') ?
                                                                 <li key={j} className="list-group-item">
-                                                                <Link href={this.queryBuilder(qb)}>
+                                                                <Link href={this.queryBuilder(qb, d._id.group)}>
                                                                 <input type="checkbox" id={`${x.field}_${j}`} className="form-check-input" onChange={()=>{
                                                                    
-                                                                }} checked={this.state.query[x.field] === d._id.group || (Array.isArray(this.state.query[x.field]) && this.state.query[x.field].includes(d._id.group))} name={x.field} />&nbsp;<label htmlFor={`${x.field}_${j}`}>{this.getCountry(d._id.group)} ({d.count})</label>
+                                                                }} checked={this.state.qryFilter[x.field] === d._id.group || (Array.isArray(this.state.qryFilter[x.field]) && this.state.qryFilter[x.field].includes(d._id.group))} name={x.field} />&nbsp;<label htmlFor={`${x.field}_${j}`}>{this.getCountry(d._id.group)} ({d.count})</label>
                                                                 </Link>
                                                                 </li>:
                                                                 <li key={j} className="list-group-item">
                                                                     <Link href={this.queryBuilder(qb)}>
                                                                     <input type="checkbox" id={`${x.field}_${j}`} className="form-check-input" onChange={()=>{
                                                                    
-                                                                }} checked={this.state.query[x.field] === d._id.group || (Array.isArray(this.state.query[x.field]) && this.state.query[x.field].includes(d._id.group))} name={x.field} />&nbsp;<label htmlFor={`${x.field}_${j}`}>{d._id.group} ({d.count})</label>
+                                                                }} checked={this.state.qryFilter[x.field] === d._id.group || (Array.isArray(this.state.qryFilter[x.field]) && this.state.qryFilter[x.field].includes(d._id.group))} name={x.field} />&nbsp;<label htmlFor={`${x.field}_${j}`}>{d._id.group} ({d.count})</label>
                                                                     </Link>
                                                                 </li>
                                                                 
                                                             }
-                                                            </>
+                                                            </div>
                                                     })
                                                     : <li className="list-group-item list-group-item-danger">
                                                         {x.msg}
@@ -307,8 +425,19 @@ export default class Scholarships extends React.Component{
                     </div>
                     <div className="col-md-8 col-lg-9 col-xl-9">
                     <div className="text-center">
-                    <h1>Scholarships</h1>
-                </div>
+                    <h2>Scholarships</h2>
+                    
+                    </div>
+                    {this.props.user.account !== null && <div className="card sticky-top mb-2" style={{top:'0px'}}>
+                        <div className="card-body">
+                        <div className="form-check form-switch">
+                            <Link href={this.queryBuilder({bookmarked:!this.state.bookmarked})}>
+                            <input className="form-check-input" type="checkbox" role="switch" id="onlybookmarks" checked={this.state.bookmarked} />
+                            <label className="form-check-label" htmlFor="onlybookmarks">Show Only Saved Scholarship</label>
+                            </Link>
+                        </div>
+                        </div>
+                    </div>}
                 {
                     this.state.scholarships !== undefined && Array.isArray(this.state.scholarships) && <>
                     {
@@ -319,35 +448,107 @@ export default class Scholarships extends React.Component{
                             </div>
                         </div>
                         :
-                        <>
+                        <div className="accordion" id={`scholarships`}>
                         {
-                            this.state.scholarships.map((x)=>{
+                            this.state.scholarships.map((x, i)=>{
+                              
                                 return <>
-                                <div className="card">
-                                    <div className="card-header bg-dark text-white">
-                                    <h3 className="card-title m-0">{x.title}</h3>
-                                    </div>
+                                <div className="card" key={i}>
+                                    
                                     <div className="card-body">
-                                        
-                                        <div className="card-text">
-                                        <div className="row">
-                                        {
-                                            Object.entries(this.names).map((v, i)=>{
+                                    <div className="row">
+                                        <div className="col-10">
+                                        <h3 className="card-title text-blue m-0">{x.title}</h3>
+                                        </div>
+                                        <div className="col-2 text-end">
+                                            <button className="btn btn-bookmark" onClick={()=>{
+                                                if(this.props.user.account === null){
+                                                    this.props.router.push('/login');
+                                                    return;
+                                                }else{
+                                                    this.bookmarkItem(x._id, !x.bookmarked)
+                                                }
                                                 
-                                                return (<div className="col-lg-4 col-md-6 col-12 align-self-center">
-                                                    <div className="card mb-1" style={{padding:"5px 10px"}}>
-                                                        {
-                                                            typeof(v[1]) === 'object' ?
-                                                            <>{this.convert(v[1], x[v[0]])}</> :
-                                                            <><strong>{v[1]}:</strong> {x[v[0]]}</>
+                                            }}>
+                                            <i className={`${x.bookmarked ? `fa-solid` : `fa-regular`} fa-bookmark`}></i>
+                                            </button>
+                                        </div>
+                                        <div className="col-12">
+                                            <hr />
+                                            
+                                            <div className="d-flex" style={{gap:'5px', flexWrap:"wrap"}}>
+                                                        { 
+                                                            Object.entries(this.names).map((v, ji)=>{
+                                                                
+                                                                if(x[v[0]] !== undefined && x[v[0]] !== '' && x[v[0]] !== null && x[v[0]] !== 'All' && x[v[0]] !== 'Any'){
+                                                                    return (<div className="d-inline-block" style={{flexGrow:"1"}} key={ji}>
+                                                                        <div className="card mb-1" style={{padding:"5px 10px"}}>
+                                                                            
+                                                                                {
+                                                                                    typeof(v[1]) === 'object' ?
+                                                                                    <>{this.convert(v[1], x[v[0]])}</> :
+                                                                                    <><strong>{v[1]}:</strong> {x[v[0]]}</>
+                                                                                }
+                                                                        
+                                                                        </div>
+                                                                    </div>)
+                                                                }
+                                                                
+                                                            })
                                                         }
-                                                    
+                                                        </div>
+                                                        <div className="accordion-item  mt-2">
+                                            <h2 className="accordion-header" id={`heading${x._id}`}>
+                                            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={`#collapse${x._id}`} aria-expanded="true" aria-controls={`collapse${x._id}`}>
+                                                More Details
+                                            </button>
+                                            </h2>
+                                            <div id={`collapse${x._id}`} className="accordion-collapse collapse" aria-labelledby={`heading${x._id}`} data-bs-parent={`#scholarships`}>
+                                            <div className="accordion-body">
+                                                
+                                                {
+                                                    x.about_scholarship !== '' && 
+                                                    <div className="pb-2">
+                                                        <h5 className="m-0 text-blue">About Scholarship</h5>
+                                                        <div dangerouslySetInnerHTML={{__html: x.about_scholarship}} />
                                                     </div>
-                                                </div>)
-                                            })
-                                        }
+                                                }
+                                                {
+                                                    x.eligibility !== '' && 
+                                                    <div className="pb-2"><h5 className="m-0 text-blue">Eligibility</h5>
+                                                    <div dangerouslySetInnerHTML={{__html: x.eligibility}} /></div>
+                                                }
+                                                {
+                                                    x.application_process !== '' && 
+                                                    <div className="pb-2"><h5 className="m-0 text-blue">Application Process</h5>
+                                                    <div dangerouslySetInnerHTML={{__html: x.application_process}} /></div>
+                                                }
+                                                {
+                                                    x.other_details !== '' && 
+                                                    <div className="pb-2"><h5 className="m-0 text-blue">Other Details</h5>
+                                                    <div dangerouslySetInnerHTML={{__html: x.other_details}} /></div>
+                                                }
+                                                <div>
+                                                   
+                                                    {
+                                                        x.contact_email !== '' && 
+                                                        <a className="btn btn-blue" href={`mailto:${x.contact_email}`} title="Send Mail"><i className="fa-regular fa-envelope"></i></a>
+                                                    }
+                                                   
+                                                    {
+                                                        x.phone_number !== '' && 
+                                                        <a className="btn btn-blue" href={`tel:${x.phone_number}`} title="Call"><i className="fa-solid fa-phone"></i></a>
+                                                    }
+                                                    
+                                                </div>
+                                                
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                        </div>
+                                    </div>
+                                    
+                                        
                                         
                                     </div>
                                     <div className="card-footer text-muted">
@@ -368,7 +569,7 @@ export default class Scholarships extends React.Component{
                                 </>
                             })
                         }
-                        </>
+                        </div>
                         
                     }
                     </>

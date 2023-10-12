@@ -21,6 +21,40 @@ a {
 }
 
 
+.btn-blue{
+  background: #004257 !important;
+  color: #fff;
+  margin-right: 5px;
+}
+
+
+.btn-blue:hover{
+  background: #fff !important;
+  color: #004257;
+}
+
+.btn-blue-o{
+  background: #fff !important;
+  color: #004257;
+  margin-right: 5px;
+}
+
+
+.btn-blue-o:hover{
+  background: #004257 !important;
+  color: #fff;
+}
+
+.btn-bookmark{
+
+  font-size: 27px;
+  line-height: 27px;
+  padding: 0px;
+}
+
+.text-blue{
+  color: #004257;
+}
 
 .bg-grey{
   background: #838383 !important;

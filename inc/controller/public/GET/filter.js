@@ -22,7 +22,7 @@ const find = async (req, app) => {
     }catch(ex){
         query = {};
     }
-    
+    query.match = app.db.filterObject(query.match);
     let data = await app.db.aggregate(app.request.query.col, [
         {$match: query.match === undefined ? {} : query.match},
         {
@@ -39,6 +39,6 @@ const find = async (req, app) => {
         { $sort: { count: -1 } }
     ], limit);
     console.log(data);
-    return {code: 200, type: 'success', data: data}
+    return {code: 200, type: 'success', data: data, query: query}
 }
 export default find;

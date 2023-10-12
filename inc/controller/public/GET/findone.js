@@ -25,12 +25,12 @@ const findone = async (req, app) => {
       query = {
         $or: [{ _id: query._id }, { _id: app.db.objectID(query._id) }],
       };
-      data = await app.db._findOne(app.request.query.col, query);
-    } else {
+    }
+    if(Object.keys(query).length > 0){
       data = await app.db._findOne(app.request.query.col, query);
     }
   }
 
-  return { code: 200, type: "success", data: data };
+  return { code: 200, type: "success", data: data, query: query };
 };
 export default findone;

@@ -71,11 +71,12 @@ class Database {
                   };
                  
                   filter['$or'] = [
-                    objbuilder(k, mongo.ObjectId(v[x])),
+                    objbuilder(k, this.objectID(v[x])),
                     objbuilder(k, v[x]),
                   ];
                   
                 } catch (ex) {
+                  console.log(ex);
                   filter[k] = v[x];
                 }
               } else {
@@ -244,12 +245,17 @@ class Database {
     try {
       console.log(query);
       //query = this.filterObject(query);
-
+      let val = Object.keys(value);
+      if(val[0] === undefined || !val[0].startsWith('$')){
+        val = { $set: value }
+      }else{
+        val = value
+      }
       const result = await this.dbo
         .collection(this.config.prefix + col)
         .updateOne(
           query,
-          value['$set'] === undefined ? { $set: value } : value,
+          val,
           option
         );
       //db.close();
@@ -383,6 +389,7 @@ class Database {
       const l = attr.limit === undefined ? 100 : parseInt(attr.limit);
 
       qry = this.filterObject(qry);
+      //console.log('filtered',qry);
       let result;
       if(Object.keys(o).length > 0){
         result = await this.dbo

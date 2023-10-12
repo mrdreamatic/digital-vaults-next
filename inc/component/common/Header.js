@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 export default class Header extends React.Component{
@@ -10,14 +11,14 @@ export default class Header extends React.Component{
       console.log(this.props.app);
       this.menu = {
         default: [
-          {content: <>Login</>, a: {href: "#"}},
+          {content: <>Login</>, a: {href: "/login"}},
         ],
         user: [
           {
             content: <>Account</>,
             a: {href: "#"},
             children: [
-              {content: <span className="badge bg-primary">{this.props.user !== undefined && this.props.user.profile !== undefined ? `Hello ${this.props.user.profile.name}!` : `Welcome User!`}</span>, a: {href: "#"}},
+              {content: <span className="badge bg-primary">{this.props.user !== undefined && this.props.user.profile !== undefined && this.props.user.profile !== null ? `Hello ${this.props.user.profile.name}!` : `Welcome User!`}</span>, a: {href: "/profile"}},
               {content: <button type="button" className="btn btn-sm btn-light" onClick={async ()=>{
                 await this.props.app.signOut();
                 window.location.reload();
@@ -57,12 +58,12 @@ export default class Header extends React.Component{
                 "aria-expanded":"false"
               }} : xattr;
               return <li key={i} className={`nav-item${x.children !== undefined ? ' dropdown' :""}`}>
-                <a className={`nav-link${x.children !== undefined ? ' dropdown-toggle' :""}${window.location.href === x.a.href ? ' active' : ""}`} id={`topnav_${i}`} {...hasChild} href={x.a.href}>{x.content}</a>{
+                <Link className={`nav-link${x.children !== undefined ? ' dropdown-toggle' :""}${window.location.href === x.a.href ? ' active' : ""}`} id={`topnav_${i}`} {...hasChild} href={x.a.href}>{x.content}</Link>{
                   x.children !== undefined && 
                   <ul className="dropdown-menu" aria-labelledby={`topnav_${i}`}>
                     {x.children.map((xi, j)=>{
                       let attr = xi.a.attr === undefined ? {} : xi.a.attr;
-                      return <li key={j}><a className="dropdown-item" href={xi.a.href} >{xi.content}</a></li>
+                      return <li key={j}><Link className="dropdown-item" href={xi.a.href} >{xi.content}</Link></li>
                     })}
                   </ul>
                 }
