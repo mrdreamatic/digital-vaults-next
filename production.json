@@ -1,0 +1,37 @@
+{
+  "environment": "",
+  "name":"Digital Vaults",
+  "server":{
+    "mongo": {
+      "url": "mongodb+srv://devadmin:jWMxpODeUlmLZrTw@cluster0.qhwpqj9.mongodb.net/",
+      "db": "firenext",
+      "prefix": "fn_"
+    },
+    "firebase": {
+      "type": "service_account",
+      "project_id": "project-firenext",
+      "private_key_id": "6771a56cafb8ed4fe0d8473512ee0b31cf85d62e",
+      "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCvW5t6bPF87Ych\nSQhDTKPWQHtltKoP7S4mSZUcYgdFIZm/athJCoh+IRe9W9uxJIFen6V6ukexk4p5\nAPzraf+yUwGYxtDzOY5QAvOVwSx56ItmBofK6X9XIT67D6G6c6jWvgbUKirfRJAd\nysVhhkqi7ImOkwvpk3kJEAZBRNqA+gb4J64ZcmxojJm82ldl5p/2k837oTqpZt4x\nCNsV0tKBL6t6ZWWoDQCI+RLGp5PlQDRAXIY3cb98tKkpJdeS6wOHI9yMMtwD6ikA\naiQYAVGVCJmNOcA14ldPiFNxYhYlRUdODW6rzeU2ZtwE62lBFEy98OReH4iqAScH\nGpM4o7ZNAgMBAAECggEAK14shYqL7qmP0duN/5bkrggkfHLB3E58K1vnVK2pvp8g\ntwZllyrTtt3YUSx2mMi+dfhlpISNVo12oZZs9ouwgRmmO3JwGrcRSxhvxYmQxlWM\npB7ZVoWIyLOgIAMtrD8Oco1sguwqzizWt4d+aTAdJU36dxhGye1+8Y7U/S9aGqtR\nebn0o01wsG0CpiLUCSaKb1B6PnJXT+2kUXUt9+ig4YA60do6t0Xr9xkKdb26r52j\no9gYENUwJHqZDOncmcJU4C4BxgwNUjsr30CIYpYv7WjJJvAgO2vvCfZ8sUCUbmiw\nkxr6RChjNkpzMLUPRTXHoRPs9CKxS/dLZ6jP8F4gAQKBgQDxlqCsG8W5CtzzmWip\nIfY/ig+zzEzCNgayxg+j3NmOFRMcUKIBkcrKKbcnuixJOO+ktm+EpXhzA8iGj6sR\nNlxc3JNpA0Kr/lJ9WV7PDLz/fMupJYKtcKAVXEGD4bYN/QgPhURkub9FefW3V3so\nD1rPA01a2NWZWuSS/Aatg+pbgQKBgQC50Y1Z+pv1W7NkIVX5Ypplo297Pov6DreK\ntJ299ynnArZElFRALX+SJ5TIsuQpW1CCX8oyNAHgKGO1TuH8IfG8nN9Ed0hU8f/R\npdZk6m+/dp2gC9VJLK4AZ3AmoCQ7+svD2sxdm5Y3IhH5CMp5Yy1IzamiKM0CB/aN\n/qDKxfBwzQKBgQDgMkwLTH6yWZ1wx3Y0N1tB3grybW7ycJbIwztycxrGW1Jv3Xhr\nAnRyJkJdsM02aosijVdyfukHu4QVNDCp+Yu/dcerFaaC3LKKtyxf809Vved2omPi\nNvmouQPnsshztNUNKjytSR9zB1p7ecjGBXHdWRApdb7L4Wjr6sz7q8cKgQKBgQCY\nbgdXVZaUSpo5PINrZXCkidKMtj1bbrEvzoRL7jJod7gPP+JxFyG8Qk3x6ZXzOx4r\nJOsYDcOwH1HTzJbjHvFPuRwJ7RPf4vjpAPKDrDDpTiN1w989/LHsUO4WMW4n6c83\npgfZjiVGquM1d/moZCwkudk61d9+mAuwZb1/OarIzQKBgBW7lBXhZtancxuDvUEK\nnpPxRhu5NO84cqu/S67V7txyL0u3cog3h83LBw9vrUrsqRfL0FwF4rR7+3nyOHHT\nuwlNHqh2gj/++9NyDMhr+8ad0Nr9Y+2N2ya1DxcIT8LTOPzCu9ejGx/ivt5p6CVU\nayAjIv2sID2r3JKyAE6nd3KH\n-----END PRIVATE KEY-----\n",
+      "client_email": "firebase-adminsdk-c11s4@project-firenext.iam.gserviceaccount.com",
+      "client_id": "116087120361582891165",
+      "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+      "token_uri": "https://oauth2.googleapis.com/token",
+      "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+      "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-c11s4%40project-firenext.iam.gserviceaccount.com",
+      "universe_domain": "googleapis.com",
+      "databaseURL": "https://project-firenext-default-rtdb.asia-southeast1.firebasedatabase.app"
+    }      
+  },
+  "client":{
+    "firebase": {
+      "apiKey": "AIzaSyDms1TBuVat7yBi4N6sFfQF_-8nkXPsKSw",
+      "authDomain": "digital-vaults.firebaseapp.com",
+      "databaseURL": "https://digital-vaults-default-rtdb.asia-southeast1.firebasedatabase.app",
+      "projectId": "digital-vaults",
+      "storageBucket": "digital-vaults.appspot.com",
+      "messagingSenderId": "895130141029",
+      "appId": "1:895130141029:web:7b4e078c368dc27b06618c",
+      "measurementId": "G-EKNZGEHRXL"
+    }
+  }
+}
