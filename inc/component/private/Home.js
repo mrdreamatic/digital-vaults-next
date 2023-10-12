@@ -45,7 +45,7 @@ export default class Home extends React.Component{
                         <div className="text-center">
                         <h1>Create your profile</h1>
                         </div>
-                        <Profile {...this.props} />
+                        <Profile {...this.props} checkUserData={this.checkUserData} />
                     </div> 
                 }
                 

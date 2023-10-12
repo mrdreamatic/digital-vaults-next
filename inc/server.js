@@ -10,6 +10,7 @@ class server extends engine {
     let  helper = new engine().start();
     delete (helper.config.client);
     const serviceAccount = helper.config.server.firebase;
+    
     const app = !getApps().length ? initializeApp({
         credential: fAdmin.credential.cert(serviceAccount),
         databaseURL: serviceAccount.databaseURL,

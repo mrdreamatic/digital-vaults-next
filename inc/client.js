@@ -58,7 +58,13 @@ class client {
     return helper;
   };
 
+  checkUser = async() => {
+    const fapp = initializeApp(helper.config.client.firebase);
+    this.helper.firebase.auth = getAuth(fapp);
+  }
+
   request = async (req, attr = {}) => {
+    
     const method =
       attr.method === undefined ? "GET" : attr.method.toUpperCase();
     const type = attr.type === undefined ? "public" : attr.type.toLowerCase();
@@ -101,15 +107,17 @@ class client {
         return await response.json();
       } catch (ex) {
         alert("Error: " + ex.message);
+        await this.checkUser();
       }
     } else {
       if (response.status === 500) {
         console.log(response);
        // alert("Error: Server is too busy! Be patient, for a few moments.");
       } else {
+
         alert("Error: " + response.status + "\n" + JSON.stringify(response));
       }
-
+      await this.checkUser();
       return response;
     }
   };

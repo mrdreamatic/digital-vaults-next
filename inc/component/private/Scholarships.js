@@ -269,7 +269,7 @@ export default class Scholarships extends React.Component{
    // let ids = data.map((i)=>{ return i._id });
    if(this.props.user.account !== null){
     this.bookmarks = await this.props.app.db('GET','findone','user_bookmarks', {_id: this.props.user.account.uid});
-    if(this.bookmarks.data !== undefined){
+    if(this.bookmarks.data !== undefined && this.bookmarks.data !== null){
         this.bookmarks = this.bookmarks.data.item
     }else{
 

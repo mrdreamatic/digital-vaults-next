@@ -55,7 +55,7 @@ export default class EditProfile extends React.Component{
                         <div className="text-center">
                         <h1>Create your profile</h1>
                         </div>
-                        <Profile {...this.props} />
+                        <Profile {...this.props} checkUserData={this.checkUserData} />
                     </div> 
                 }
                 
@@ -68,7 +68,7 @@ export default class EditProfile extends React.Component{
                         <h1>Your Profile</h1>
                         
                         </div>
-                        <Profile {...this.props} user={this.props.user} /> 
+                        <Profile {...this.props} user={this.props.user} checkUserData={this.checkUserData} /> 
                         <hr />
                         <Questions {...this.props} checkUserData={this.checkUserData} />
                     </div>

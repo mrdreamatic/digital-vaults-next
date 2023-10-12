@@ -3,8 +3,6 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/": "pages/index.js",
-  "/login": "pages/login.js",
-  "/profile": "pages/profile.js",
-  "/api/private/[request]": "pages/api/private/[request].js",
-  "/api/public/[request]": "pages/api/public/[request].js"
+  "/api/public/[request]": "pages/api/public/[request].js",
+  "/profile": "pages/profile.js"
 }
