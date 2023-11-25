@@ -9,7 +9,7 @@ export default class Home extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            userdata: []
+            userdata: null
         }
         
     console.log(this.props);
@@ -34,6 +34,7 @@ export default class Home extends React.Component{
     }
 
     render(){
+       
         return(<main>
             <div className="page-contents">
              {
@@ -52,7 +53,7 @@ export default class Home extends React.Component{
                 </> : 
                 
                 <>{
-                    (this.state.userdata.length < 1) && this.props.user.account !== null ? 
+                    this.state.userdata === null && this.props.user.account !== null ? 
 <                   div className="container pt-3 pb-3">
                         <div className="text-center">
                         <h1>Answer the following questions</h1>

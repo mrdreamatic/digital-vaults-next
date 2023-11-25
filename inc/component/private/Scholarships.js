@@ -4,6 +4,7 @@ import country from './countries.json';
 
 
 import Link from "next/link";
+import ScholarshipFilter from "../common/ScholarshipFilter";
 
 
 export default class Scholarships extends React.Component{
@@ -174,7 +175,7 @@ export default class Scholarships extends React.Component{
           } shallow routing`
         );
         this.query = this.getQuery(decodeURI(url.replace(/\/(.*)\?/i, "")));
-        
+        console.log(this.query);
         this.setState({
             qryFilter: this.query,
             bookmarked: this.query.bookmarked !== undefined && this.query.bookmarked === 'true'
@@ -183,7 +184,7 @@ export default class Scholarships extends React.Component{
             
         };
 
-        await this.filterData(this.query);
+       // await this.filterData(this.query);
         console.log(this.state)
         this.forceUpdate(); 
         
@@ -339,7 +340,7 @@ export default class Scholarships extends React.Component{
       return found.length > 0 ? found[0] : []
     }
 
-    shouldComponentUpdate = () => false;
+    //shouldComponentUpdate = () => false;
 
     bookmarkItem = async(id, add = true) =>{
         
@@ -379,65 +380,7 @@ export default class Scholarships extends React.Component{
                 <div className="p-3"></div>
                         <div className="row">
                             <div className="col-md-4 col-lg-4 col-xl-3" >
-                                <div style={{position:"sticky","top":"0px"}}>
-                                    <h5>Filter By</h5>
-                                    <div className="card" style={{overflow:"auto", maxHeight:"90vh"}}>
-                                        <div className="card-body">
-                                        
-                                            {
-                                                this.state.filter !== undefined && 
-                                                <>
-                                                
-                                                {
-                                                    this.state.filter.map((x,i)=>{
-                                                        return <div key={i} className="mb-2">
-                                                            <h6>{x.name}</h6>
-                                                            <ul className="list-group mb-1">
-                                                        {
-                                                            x.type === 'success' && Array.isArray(x.data) ?
-                                                            x.data.map((d,j)=>{
-                                                                let qb = {};
-                                                                if(Array.isArray(this.state.qryFilter[x.field])){
-                                                                    qb[x.field] = this.state.qryFilter[x.field].splice(this.state.qryFilter[x.field].indexOf(d._id.group), 1);
-                                                                }else{
-                                                                    qb[x.field] = this.state.qryFilter[x.field] === d._id.group ? undefined : d._id.group;
-                                                                }
-                                                                let checked = this.state.qryFilter[x.field] === d._id.group || (Array.isArray(this.state.qryFilter[x.field]) && this.state.qryFilter[x.field].includes(d._id.group));
-                                                            // console.log(checked, d._id.group, this.state.qryFilter[x.field]);
-                                                                return <div key={j}>
-                                                                    {
-                                                                        typeof(x.field) === 'string' && x.field.includes('_country') ?
-                                                                        <li key={j} className="list-group-item">
-                                                                        <Link href={this.queryBuilder(qb, d._id.group)}>
-                                                                        <input type="checkbox" id={`${x.field}_${j}`} className="form-check-input" onChange={()=>{
-                                                                        
-                                                                        }} checked={this.state.qryFilter[x.field] === d._id.group || (Array.isArray(this.state.qryFilter[x.field]) && this.state.qryFilter[x.field].includes(d._id.group))} name={x.field} />&nbsp;<label htmlFor={`${x.field}_${j}`}>{this.getCountry(d._id.group)} ({d.count})</label>
-                                                                        </Link>
-                                                                        </li>:
-                                                                        <li key={j} className="list-group-item">
-                                                                            <Link href={this.queryBuilder(qb)}>
-                                                                            <input type="checkbox" id={`${x.field}_${j}`} className="form-check-input" onChange={()=>{
-                                                                        
-                                                                        }} checked={this.state.qryFilter[x.field] === d._id.group || (Array.isArray(this.state.qryFilter[x.field]) && this.state.qryFilter[x.field].includes(d._id.group))} name={x.field} />&nbsp;<label htmlFor={`${x.field}_${j}`}>{d._id.group} ({d.count})</label>
-                                                                            </Link>
-                                                                        </li>
-                                                                        
-                                                                    }
-                                                                    </div>
-                                                            })
-                                                            : <li className="list-group-item list-group-item-danger">
-                                                                {x.msg}
-                                                            </li>
-                                                        }
-                                                        </ul>
-                                                        </div>
-                                                    })
-                                                }
-                                                </>
-                                            }
-                                        </div>
-                                    </div>
-                                </div>
+                                <ScholarshipFilter state={this.state} router={this.props.router} getCountry={this.getCountry} />
                             </div>
                             <div className="col-md-8 col-lg-9 col-xl-9">
                             <div className="text-center">
